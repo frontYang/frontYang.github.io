@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vue学习 | YNote</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Vue.js组件的重要选项 data: vue对象的数据 methods: vue对象的方法 watch: 设置了对象监听的方法 data: vue对象的数据   模板指令——html和vue对象的粘合剂 数据渲染 控制模块隐藏： v-if、v-show 渲染循环列表： v-for 事件绑定： v-on 属性绑定： v-bind">
+<meta name="keywords" content="tool,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue学习">
+<meta property="og:url" content="http://yoursite.com/2017/04/04/vuejs/index.html">
+<meta property="og:site_name" content="YNote">
+<meta property="og:description" content="Vue.js组件的重要选项 data: vue对象的数据 methods: vue对象的方法 watch: 设置了对象监听的方法 data: vue对象的数据   模板指令——html和vue对象的粘合剂 数据渲染 控制模块隐藏： v-if、v-show 渲染循环列表： v-for 事件绑定： v-on 属性绑定： v-bind">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-05-21T06:16:41.566Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue学习">
+<meta name="twitter:description" content="Vue.js组件的重要选项 data: vue对象的数据 methods: vue对象的方法 watch: 设置了对象监听的方法 data: vue对象的数据   模板指令——html和vue对象的粘合剂 数据渲染 控制模块隐藏： v-if、v-show 渲染循环列表： v-for 事件绑定： v-on 属性绑定： v-bind">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!-- <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">YNote</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">记录学习的技能/遇到的问题</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/Archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div> -->
+</header>
+      <div class="outer">
+      
+        <aside id="sidebar">
+	<div class="header-inner">
+		<div class="logo">
+		  <h1>
+		    <a href="/">YNote</a>
+		  </h1>
+		  
+		    <h2>
+		      <a href="/">记录学习的技能/遇到的问题</a>
+		    </h2>
+		  
+		</div>
+
+		<div class="site-nav">
+			
+			  <a href="/">首页</a>
+			
+			  <a href="/Archives">归档</a>
+			
+			<!--   
+			<a title="搜索"></a>
+			<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+			-->
+		</div>
+	</div>
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/glue/" style="font-size: 10px;">glue</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/tool/" style="font-size: 20px;">tool</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/04/hexo/">Hexo常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/glue/">Glue安装步骤及常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/13/sublime/">sublime text使用技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/09/webpack/">webpack学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/09/es6/">ES6学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+        <section id="main"><article id="post-vuejs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2017/04/04/vuejs/" class="article-date">
+  <time datetime="2017-04-04T04:52:57.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">tool</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Vue.js组件的重要选项<ul>
+<li>data: vue对象的数据</li>
+<li>methods: vue对象的方法</li>
+<li>watch: 设置了对象监听的方法</li>
+<li>data: vue对象的数据</li>
+</ul>
+</li>
+<li>模板指令——html和vue对象的粘合剂<ul>
+<li>数据渲染</li>
+<li>控制模块隐藏： v-if、v-show</li>
+<li>渲染循环列表： v-for</li>
+<li>事件绑定： v-on</li>
+<li>属性绑定： v-bind</li>
+</ul>
+</li>
+</ul>
+<hr>
+<a id="more"></a>
+<h3 id="一、Vue-js组件的重要选项"><a href="#一、Vue-js组件的重要选项" class="headerlink" title="一、Vue.js组件的重要选项"></a>一、Vue.js组件的重要选项</h3><h4 id="1、data-vue对象的数据"><a href="#1、data-vue对象的数据" class="headerlink" title="1、data: vue对象的数据"></a>1、data: vue对象的数据</h4><h4 id="2、methods-vue对象的方法"><a href="#2、methods-vue对象的方法" class="headerlink" title="2、methods: vue对象的方法"></a>2、methods: vue对象的方法</h4><h4 id="3、watch-设置了对象监听的方法"><a href="#3、watch-设置了对象监听的方法" class="headerlink" title="3、watch: 设置了对象监听的方法"></a>3、watch: 设置了对象监听的方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123; a &#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">        a: 1,</span><br><span class="line">        b: []</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        doSometh: function()&#123;</span><br><span class="line">            console.log(this.a)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123;</span><br><span class="line">        &apos;a&apos;: function(val, oldVal)&#123;</span><br><span class="line">                console.log(val, oldVal)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="二、模板指令——html和vue对象的粘合剂"><a href="#二、模板指令——html和vue对象的粘合剂" class="headerlink" title="二、模板指令——html和vue对象的粘合剂"></a>二、模板指令——html和vue对象的粘合剂</h3><h4 id="1、数据渲染："><a href="#1、数据渲染：" class="headerlink" title="1、数据渲染："></a>1、数据渲染：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v-text、v-html、 &#123;&#123; &#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123; a &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;p v-text=&quot;a&quot;&gt;&lt;/p&gt;</span><br><span class="line">&lt;p v-html=&quot;a&quot;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">    data: [</span><br><span class="line">        a: 1,</span><br><span class="line">        b: []</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="2、控制模块隐藏：-v-if、v-show"><a href="#2、控制模块隐藏：-v-if、v-show" class="headerlink" title="2、控制模块隐藏： v-if、v-show"></a>2、控制模块隐藏： v-if、v-show</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-if=&quot;isShow&quot;&gt;&lt;/p&gt;</span><br><span class="line">&lt;p v-show=&quot;isShow&quot;&gt;&lt;/p&gt;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">        isShow: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="3、渲染循环列表：-v-for"><a href="#3、渲染循环列表：-v-for" class="headerlink" title="3、渲染循环列表： v-for"></a>3、渲染循环列表： v-for</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li v-for=&apos;item in items&apos;&gt;</span><br><span class="line">        &lt;p v-text=&apos;item.label&apos;&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">data: &#123;</span><br><span class="line">    items: [</span><br><span class="line">        &#123;</span><br><span class="line">            label: &apos;apple&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            label: &apos;banana&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4、事件绑定：-v-on"><a href="#4、事件绑定：-v-on" class="headerlink" title="4、事件绑定： v-on"></a>4、事件绑定： v-on</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;button v-on:click=&quot;doThis&quot;&gt;&lt;/button&gt;</span><br><span class="line">&lt;button @click=&quot;doThis&quot;&gt;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">nethods: &#123;</span><br><span class="line">    doThis: function(someThing)&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h4 id="5、属性绑定：-v-bind"><a href="#5、属性绑定：-v-bind" class="headerlink" title="5、属性绑定： v-bind"></a>5、属性绑定： v-bind</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;img v-bind:src=&quot;&quot; alt=&quot;&quot;&gt;  //字符串</span><br><span class="line">&lt;img :src=&quot;&quot; alt=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;div ：class=&quot;&#123; red: isRed &#125;&quot;&gt;&lt;/div&gt; //布尔值</span><br><span class="line">&lt;div ：class=&quot;[classA, classB]&quot;&gt;&lt;/div&gt; //</span><br><span class="line">&lt;div ：class=&quot;[classA, &#123;classB: isB, classC： isC&#125;]&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>未完待续。。。</p>
+
+      
+    </div>
+    <!-- <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/04/vuejs/" data-id="cjecfonpg000vpsvppwnpvy0q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tool/">tool</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer> -->
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/16/base-html/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          html基础知识
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/27/sass/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Sass学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 yangzhifang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<script src="https://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+document.write(unescape("%3Cscript src='/js/jquery1.10.2.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
