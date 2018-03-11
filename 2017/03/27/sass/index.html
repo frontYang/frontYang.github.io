@@ -5,12 +5,15 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +41,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,49 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.0.5" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.5">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.5">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.5">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="tool,sass," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="YNode" type="application/atom+xml" />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.5" color="#222">
 
 
 
 
 
 
-<meta name="description" content="参考：http://www.ruanyifeng.com/blog/2012/06/sass.html  安装 点击查看 调试 点击查看 编译 点击查看 常用命令 基本用法 代码重用 高级用法">
-<meta name="keywords" content="tool,sass">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Sass学习">
-<meta property="og:url" content="http://yoursite.com/2017/03/27/sass/index.html">
-<meta property="og:site_name" content="YNode">
-<meta property="og:description" content="参考：http://www.ruanyifeng.com/blog/2012/06/sass.html  安装 点击查看 调试 点击查看 编译 点击查看 常用命令 基本用法 代码重用 高级用法">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-05-07T08:03:11.142Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sass学习">
-<meta name="twitter:description" content="参考：http://www.ruanyifeng.com/blog/2012/06/sass.html  安装 点击查看 调试 点击查看 编译 点击查看 常用命令 基本用法 代码重用 高级用法">
 
 
 
@@ -100,16 +75,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
+    scheme: 'Pisces',
+    version: '6.0.5',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -121,14 +94,43 @@
 </script>
 
 
+  
+
+
+
+
+  
+  <meta name="keywords" content="sass," />
+
+
+<meta name="description" content="一、常用命令 项目中常用：sass --watch sass:css --style compact  格式转换sass-convert style.sass style.scss  运行sasssass input.css output.css">
+<meta name="keywords" content="sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/27/sass/index.html">
+<meta property="og:site_name" content="YNode">
+<meta property="og:description" content="一、常用命令 项目中常用：sass --watch sass:css --style compact  格式转换sass-convert style.sass style.scss  运行sasssass input.css output.css">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-11T07:35:24.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sass学习笔记">
+<meta name="twitter:description" content="一、常用命令 项目中常用：sass --watch sass:css --style compact  格式转换sass-convert style.sass style.scss  运行sasssass input.css output.css">
+
+
+
+
+
 
   <link rel="canonical" href="http://yoursite.com/2017/03/27/sass/"/>
 
 
 
-
-
-  <title>Sass学习 | YNode</title>
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>Sass学习笔记 | YNode</title>
   
 
 
@@ -138,9 +140,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -151,7 +181,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"> <div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -185,21 +215,28 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">11</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">0</span>
+              </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">12</span>
+              </a>
         </li>
       
 
@@ -211,9 +248,15 @@
 </nav>
 
 
+  
+
+
 
  </div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
@@ -230,6 +273,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -240,7 +285,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="frongYang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -252,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Sass学习</h1>
+          <h1 class="post-title" itemprop="name headline">Sass学习笔记</h1>
         
 
         <div class="post-meta">
@@ -264,11 +309,10 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T15:58:57+08:00">
-                2017-03-27
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T15:58:57+08:00">2017-03-27</time>
             
 
+            
             
 
             
@@ -302,128 +346,109 @@
       
 
       
-        <p>参考：<a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2012/06/sass.html</a></p>
-<ul>
-<li>安装 <a href="https://www.sass.hk/install/" target="_blank" rel="noopener">点击查看</a></li>
-<li>调试 <a href="http://www.w3cplus.com/preprocessor/sass-debug-with-developer-tool.html" target="_blank" rel="noopener">点击查看</a></li>
-<li>编译 <a href="http://www.w3cplus.com/preprocessor/sass-compile.html" target="_blank" rel="noopener">点击查看</a></li>
-<li>常用命令</li>
-<li>基本用法</li>
-<li>代码重用</li>
-<li>高级用法</li>
-</ul>
-<hr>
-<a id="more"></a>
-<h2 id="一、常用命令"><a href="#一、常用命令" class="headerlink" title="一、常用命令"></a>一、常用命令</h2><ul>
-<li><p>项目中常用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass --watch sass:css --style compact</span><br></pre></td></tr></table></figure>
+        <h2 id="一、常用命令"><a href="#一、常用命令" class="headerlink" title="一、常用命令"></a>一、常用命令</h2><ul>
+<li><p>项目中常用：<br><code>sass --watch sass:css --style compact</code></p>
 </li>
-<li><p>格式转换</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass-convert style.sass style.scss</span><br></pre></td></tr></table></figure>
+<li><p>格式转换<br><code>sass-convert style.sass style.scss</code></p>
 </li>
-<li><p>运行sass</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass input.css output.css</span><br></pre></td></tr></table></figure>
+<li><p>运行sass<br><code>sass input.css output.css</code></p>
+<a id="more"></a></li>
+<li><p>监视sass文件，每次更新时，自动编译成css<br><code>sass --watch input.scss: output.css</code></p>
 </li>
-<li><p>监视sass文件，每次更新时，自动编译成css</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass --watch input.scss: output.css</span><br></pre></td></tr></table></figure>
+<li><p>监视整个文件夹<br><code>sass --watch app/sass:public/stylesheets</code></p>
 </li>
-<li><p>监视整个文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass --watch app/sass:public/stylesheets</span><br></pre></td></tr></table></figure>
+<li><p>更多命令行<br><code>sass --help</code></p>
 </li>
-<li><p>更多命令行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass --help</span><br></pre></td></tr></table></figure>
+<li><p>紧凑输出方式 campact<br><code>sass --watch test.scss:test.css --style compact</code></p>
 </li>
-<li><p>紧凑输出方式 campact</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass --watch test.scss:test.css --style compact</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>压缩输出方式 campact</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass --watch test.scss:test.css --style compressed</span><br></pre></td></tr></table></figure>
+<li><p>压缩输出方式 campact<br><code>sass --watch test.scss:test.css --style compressed</code></p>
 </li>
 </ul>
 <hr>
-<h2 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<h2 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h2><h3 id="1、变量"><a href="#1、变量" class="headerlink" title="1、变量"></a>1、变量</h3><ul>
 <li><p>使用$开头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$blue : #1875e7;</span><br><span class="line">div&#123;</span><br><span class="line">    color: $blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$blue : #1875e7;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: $blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果变量需要镶嵌在字符串中，就必须需要写在#{}之中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$side: left;</span><br><span class="line">.rounded &#123;</span><br><span class="line">    border-#&#123;$side&#125;-radius: 5px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="计算功能"><a href="#计算功能" class="headerlink" title="计算功能"></a>计算功能</h3><ul>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$var: 500px;</span><br><span class="line">body&#123;</span><br><span class="line">    margin: (14px/2);</span><br><span class="line">    top:50px + 100px;</span><br><span class="line">    right:$var * 10%</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、计算功能"><a href="#2、计算功能" class="headerlink" title="2、计算功能"></a>2、计算功能</h3><ul>
+<li>例如<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$var: 500px;</span><br><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>: (<span class="number">14px</span>/<span class="number">2</span>);</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50px</span> + <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">right</span>:$var * <span class="number">10%</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><ul>
+<h3 id="3、嵌套"><a href="#3、嵌套" class="headerlink" title="3、嵌套"></a>3、嵌套</h3><ul>
 <li><p>标签嵌套</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    h1&#123;</span><br><span class="line">        color:red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    h1&#123;</span><br><span class="line">        <span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>属性嵌套</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">    border:&#123;</span><br><span class="line">        color:red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>:&#123;</span><br><span class="line">        color:red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>伪类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">    &amp;:hover&#123;</span><br><span class="line">        color:#ffb3ff;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    &amp;:hover&#123;</span><br><span class="line">        <span class="selector-tag">color</span>:<span class="selector-id">#ffb3ff</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ul>
-<li><p>会保留到编译后的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*  */</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>只保留在sass源文件中，编译后被省略</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>主要注释，即使是压缩模式编译，也会保留这行注释，通常用作声明版权信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*!</span><br><span class="line">    重要注释</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h3 id="4、注释"><a href="#4、注释" class="headerlink" title="4、注释"></a>4、注释</h3><ul>
+<li>会保留到编译后的文件<br><code>/*  */</code></li>
+<li>只保留在sass源文件中，编译后被省略<br><code>//</code></li>
+<li>主要注释，即使是压缩模式编译，也会保留这行注释，通常用作声明版权信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*!</span><br><span class="line">    重要注释</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="三、代码重用"><a href="#三、代码重用" class="headerlink" title="三、代码重用"></a>三、代码重用</h2><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ul>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.class1&#123;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.class2&#123;</span><br><span class="line">    @extend .class1;</span><br><span class="line">    font-size: 120%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、代码重用"><a href="#三、代码重用" class="headerlink" title="三、代码重用"></a>三、代码重用</h2><h3 id="4、继承"><a href="#4、继承" class="headerlink" title="4、继承"></a>4、继承</h3><ul>
+<li>例如<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class1</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.class2</span>&#123;</span><br><span class="line">    @extend .class1;</span><br><span class="line">    <span class="selector-tag">font-size</span>: 120%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="Mixin"><a href="#Mixin" class="headerlink" title="Mixin"></a>Mixin</h3><ul>
+<h3 id="5、Mixin"><a href="#5、Mixin" class="headerlink" title="5、Mixin"></a>5、Mixin</h3><ul>
 <li><p>可以重用的代码块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@mixin left($value: 10px)&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    margin-right: $value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div&#123;</span><br><span class="line">    @include left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> left($value: <span class="number">10px</span>)&#123;</span><br><span class="line">    <span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">    margin-right: $value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    @include left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>可以指定参数和缺省值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@mixin rounded($vert, $horz, $radius: 10px)&#123;</span><br><span class="line">    border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius;</span><br><span class="line">    -moz-border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius;</span><br><span class="line">    -webkit-border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#navbar li&#123;</span><br><span class="line">    @include rounded(top, left);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#footer&#123;</span><br><span class="line">    @include rounded(top, left, 5px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> rounded($vert, $horz, $radius: <span class="number">10px</span>)&#123;</span><br><span class="line">    border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius;</span><br><span class="line">    -moz-border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius;</span><br><span class="line">    -webkit-border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#navbar</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">    @include rounded(top, left);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#footer</span>&#123;</span><br><span class="line">    @include rounded(top, left, 5px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="颜色函数"><a href="#颜色函数" class="headerlink" title="颜色函数"></a>颜色函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lighten(#cc3, 10%) // #d6d65c</span><br><span class="line">darken(#cc3, 10%) // #a3a329</span><br><span class="line">grayscale(#cc3) // #808080</span><br><span class="line">complement(#cc3) // #33c</span><br></pre></td></tr></table></figure>
-<h3 id="插入文件"><a href="#插入文件" class="headerlink" title="插入文件"></a>插入文件</h3><ul>
+<h3 id="6、颜色函数"><a href="#6、颜色函数" class="headerlink" title="6、颜色函数"></a>6、颜色函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lighten(#cc3, 10%) // #d6d65c</span><br><span class="line">darken(#cc3, 10%) // #a3a329</span><br><span class="line">grayscale(#cc3) // #808080</span><br><span class="line">complement(#cc3) // #33c</span><br></pre></td></tr></table></figure>
+<h3 id="7、插入文件"><a href="#7、插入文件" class="headerlink" title="7、插入文件"></a>7、插入文件</h3><ul>
 <li><p>@import命令，用来插入外部文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　@import &quot;path/filename.scss&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　@<span class="keyword">import</span> <span class="string">"path/filename.scss"</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果插入的是.css文件，则等同于css的import命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　@import &quot;foo.css&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　@<span class="keyword">import</span> <span class="string">"foo.css"</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="四、高级用法"><a href="#四、高级用法" class="headerlink" title="四、高级用法"></a>四、高级用法</h2><h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><ul>
+<h2 id="四、高级用法"><a href="#四、高级用法" class="headerlink" title="四、高级用法"></a>四、高级用法</h2><h3 id="1、条件语句"><a href="#1、条件语句" class="headerlink" title="1、条件语句"></a>1、条件语句</h3><ul>
 <li><p>例1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">    @if 1 + 1 == 2 &#123; border:1px solid #eee; &#125;</span><br><span class="line"></span><br><span class="line">    @if 5 &lt; 3 &#123; border:2px dotted #eee; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"></span><br><span class="line">p &#123;  border: 1px solid #eee; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    @if 1 + 1 == 2 &#123; border:1px solid #eee; &#125;</span><br><span class="line"></span><br><span class="line">    @<span class="keyword">if</span> <span class="number">5</span> &lt; <span class="number">3</span> &#123; <span class="selector-tag">border</span><span class="selector-pseudo">:2px</span> <span class="selector-tag">dotted</span> <span class="selector-id">#eee</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#eee</span>; &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>例2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">    @if lightness($color) &gt; 30% &#123;</span><br><span class="line">        background-color: #000;</span><br><span class="line">    &#125; @else &#123;</span><br><span class="line">        background-color: #fff;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line">p &#123;  background-color: #000; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    @if lightness($color) &gt; 30% &#123;</span><br><span class="line">        <span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</span><br><span class="line">    &#125; @<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="selector-tag">background-color</span>: <span class="selector-id">#fff</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"><span class="selector-tag">p</span> &#123;  <span class="attribute">background-color</span>: <span class="number">#000</span>; &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h4><ul>
+<h3 id="2、循环语句"><a href="#2、循环语句" class="headerlink" title="2、循环语句"></a>2、循环语句</h3><ul>
 <li><p>for循环</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@for $i from 1 to 10&#123;</span><br><span class="line">    .border-#&#123;$i&#125;&#123;</span><br><span class="line">        border: #&#123;$i&#125;px solid blue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line">.border-1 &#123;border: 1px solid blue; &#125;</span><br><span class="line">.border-2 &#123;border: 2px solid blue; &#125;</span><br><span class="line">.border-3 &#123;border: 3px solid blue; &#125;</span><br><span class="line">.border-4 &#123;border: 4px solid blue; &#125;</span><br><span class="line">.border-5 &#123;border: 5px solid blue; &#125;</span><br><span class="line">.border-6 &#123;border: 6px solid blue; &#125;</span><br><span class="line">.border-7 &#123;border: 7px solid blue; &#125;</span><br><span class="line">.border-8 &#123;border: 8px solid blue; &#125;</span><br><span class="line">.border-9 &#123;border: 9px solid blue; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">for</span> $i from <span class="number">1</span> to <span class="number">10</span>&#123;</span><br><span class="line">    .border-#&#123;$i&#125;&#123;</span><br><span class="line">        border: #&#123;$i&#125;px solid blue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"><span class="selector-class">.border-1</span> &#123;<span class="attribute">border</span>: <span class="number">1px</span> solid blue; &#125;</span><br><span class="line"><span class="selector-class">.border-2</span> &#123;<span class="attribute">border</span>: <span class="number">2px</span> solid blue; &#125;</span><br><span class="line"><span class="selector-class">.border-3</span> &#123;<span class="attribute">border</span>: <span class="number">3px</span> solid blue; &#125;</span><br><span class="line"><span class="selector-class">.border-4</span> &#123;<span class="attribute">border</span>: <span class="number">4px</span> solid blue; &#125;</span><br><span class="line"><span class="selector-class">.border-5</span> &#123;<span class="attribute">border</span>: <span class="number">5px</span> solid blue; &#125;</span><br><span class="line"><span class="selector-class">.border-6</span> &#123;<span class="attribute">border</span>: <span class="number">6px</span> solid blue; &#125;</span><br><span class="line"><span class="selector-class">.border-7</span> &#123;<span class="attribute">border</span>: <span class="number">7px</span> solid blue; &#125;</span><br><span class="line"><span class="selector-class">.border-8</span> &#123;<span class="attribute">border</span>: <span class="number">8px</span> solid blue; &#125;</span><br><span class="line"><span class="selector-class">.border-9</span> &#123;<span class="attribute">border</span>: <span class="number">9px</span> solid blue; &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>while循环</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$i: 6;</span><br><span class="line">@while $i &gt; 0&#123;</span><br><span class="line">    .item-#&#123;$i&#125;&#123;</span><br><span class="line">        width: 2em * $i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $i: $i - 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line">.item-6 &#123;width: 12em; &#125;</span><br><span class="line">.item-4 &#123;width: 8em; &#125;</span><br><span class="line">.item-2 &#123;width: 4em; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$i: 6;</span><br><span class="line">@<span class="keyword">while</span> $i &gt; <span class="number">0</span>&#123;</span><br><span class="line">    .item-#&#123;$i&#125;&#123;</span><br><span class="line">        width: 2em * $i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $i: $i - 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"><span class="selector-class">.item-6</span> &#123;<span class="attribute">width</span>: <span class="number">12em</span>; &#125;</span><br><span class="line"><span class="selector-class">.item-4</span> &#123;<span class="attribute">width</span>: <span class="number">8em</span>; &#125;</span><br><span class="line"><span class="selector-class">.item-2</span> &#123;<span class="attribute">width</span>: <span class="number">4em</span>; &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>each</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@each $member in a,b,c,d&#123;</span><br><span class="line">    .#&#123;$member&#125; &#123;</span><br><span class="line">        background-image:url(&quot;/image/#&#123;$member&#125;.jpg&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line">.a &#123;background-image: url(&quot;/image/a.jpg&quot;); &#125;</span><br><span class="line">.b &#123;background-image: url(&quot;/image/b.jpg&quot;); &#125;</span><br><span class="line">.c &#123;background-image: url(&quot;/image/c.jpg&quot;); &#125;</span><br><span class="line">.d &#123;background-image: url(&quot;/image/d.jpg&quot;); &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">each</span> $member in a,b,c,d&#123;</span><br><span class="line">    .#&#123;$member&#125; &#123;</span><br><span class="line">        background-image:url("/image/#&#123;$member&#125;.jpg");</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"><span class="selector-class">.a</span> &#123;<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"/image/a.jpg"</span>); &#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"/image/b.jpg"</span>); &#125;</span><br><span class="line"><span class="selector-class">.c</span> &#123;<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"/image/c.jpg"</span>); &#125;</span><br><span class="line"><span class="selector-class">.d</span> &#123;<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"/image/d.jpg"</span>); &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><ul>
-<li>例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@function double($n)&#123;</span><br><span class="line">    @return $n * 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#sidebar &#123;</span><br><span class="line">    width: double(5px);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line">#sidebar &#123; width: 10px; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、自定义函数"><a href="#3、自定义函数" class="headerlink" title="3、自定义函数"></a>3、自定义函数</h3><ul>
+<li>例如：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">function</span> double($n)&#123;</span><br><span class="line">    @<span class="keyword">return</span> $n * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#sidebar</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">double</span>(5px);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"><span class="selector-id">#sidebar</span> &#123; <span class="attribute">width</span>: <span class="number">10px</span>; &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<blockquote>
+<p>ps: <a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">参考</a>,<a href="https://www.sass.hk/install/" target="_blank" rel="noopener">安装</a>,<a href="http://www.w3cplus.com/preprocessor/sass-debug-with-developer-tool.html" target="_blank" rel="noopener">调试</a>,<a href="http://www.w3cplus.com/preprocessor/sass-compile.html" target="_blank" rel="noopener">编译</a></p>
+</blockquote>
 
       
     </div>
+
+    
+
     
     
     
@@ -437,8 +462,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/tool/" rel="tag"># tool</a>
           
             <a href="/tags/sass/" rel="tag"># sass</a>
           
@@ -487,9 +510,6 @@
           </div>
           
 
-
-          
-
   
 
 
@@ -528,58 +548,87 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
+                src="/images/avatar.png"
                 alt="frongYang" />
             
               <p class="site-author-name" itemprop="name">frongYang</p>
               <p class="site-description motion-element" itemprop="description">记录学习的技能/遇到的问题</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
+          
+            <nav class="site-state motion-element">
               
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
+                <div class="site-state-item site-state-posts">
                 
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">标签</span>
+                  <a href="/archives/">
                 
-              </div>
-            
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-          </nav>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
 
           
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/frontYang" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
             </div>
           
 
           
-
-          
           
 
           
           
 
+          
+            
+          
           
 
         </div>
@@ -595,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、常用命令"><span class="nav-number">1.</span> <span class="nav-text">一、常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本用法"><span class="nav-number">2.</span> <span class="nav-text">二、基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算功能"><span class="nav-number">2.2.</span> <span class="nav-text">计算功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套"><span class="nav-number">2.3.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">2.4.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、代码重用"><span class="nav-number">3.</span> <span class="nav-text">三、代码重用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.1.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mixin"><span class="nav-number">3.2.</span> <span class="nav-text">Mixin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色函数"><span class="nav-number">3.3.</span> <span class="nav-text">颜色函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入文件"><span class="nav-number">3.4.</span> <span class="nav-text">插入文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、高级用法"><span class="nav-number">4.</span> <span class="nav-text">四、高级用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件语句"><span class="nav-number">4.1.</span> <span class="nav-text">条件语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环语句"><span class="nav-number">4.1.1.</span> <span class="nav-text">循环语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义函数"><span class="nav-number">4.2.</span> <span class="nav-text">自定义函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、常用命令"><span class="nav-number">1.</span> <span class="nav-text">一、常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本用法"><span class="nav-number">2.</span> <span class="nav-text">二、基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、变量"><span class="nav-number">2.1.</span> <span class="nav-text">1、变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、计算功能"><span class="nav-number">2.2.</span> <span class="nav-text">2、计算功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、嵌套"><span class="nav-number">2.3.</span> <span class="nav-text">3、嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、注释"><span class="nav-number">2.4.</span> <span class="nav-text">4、注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、代码重用"><span class="nav-number">3.</span> <span class="nav-text">三、代码重用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4、继承"><span class="nav-number">3.1.</span> <span class="nav-text">4、继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、Mixin"><span class="nav-number">3.2.</span> <span class="nav-text">5、Mixin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、颜色函数"><span class="nav-number">3.3.</span> <span class="nav-text">6、颜色函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、插入文件"><span class="nav-number">3.4.</span> <span class="nav-text">7、插入文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、高级用法"><span class="nav-number">4.</span> <span class="nav-text">四、高级用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、条件语句"><span class="nav-number">4.1.</span> <span class="nav-text">1、条件语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、循环语句"><span class="nav-number">4.2.</span> <span class="nav-text">2、循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、自定义函数"><span class="nav-number">4.3.</span> <span class="nav-text">3、自定义函数</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -622,7 +671,11 @@
   <span class="author" itemprop="copyrightHolder">frongYang</span>
 
   
+
+  
 </div>
+
+
 
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
@@ -633,12 +686,13 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.5</div>
 
 
 
 
         
+
 
 
 
@@ -677,7 +731,11 @@
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -697,16 +755,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -715,42 +763,40 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.5"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.5"></script>
 
 
 
   
   
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.5"></script>
 
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.5"></script>
+
+
+
+  
 
 
 
@@ -777,8 +823,6 @@
 
 
 
-
-
   
 
 
@@ -792,6 +836,10 @@
   
 
   
+
+  
+  
+
   
 
   

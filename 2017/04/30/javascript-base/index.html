@@ -5,12 +5,15 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +41,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,49 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.0.5" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.5">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.5">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.5">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="javascript," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="YNode" type="application/atom+xml" />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.5" color="#222">
 
 
 
 
 
 
-<meta name="description" content="break continue 和 return 的用法 instanceof constructor hasOwnProperty in call() / apply() forEach() cloneNode() cssText setTimeout() / setInterval() encodeURIComponent() / decodeURIComponent() getBoundin">
-<meta name="keywords" content="javascript">
-<meta property="og:type" content="article">
-<meta property="og:title" content="javascript日常笔记">
-<meta property="og:url" content="http://yoursite.com/2017/04/30/javascript-base/index.html">
-<meta property="og:site_name" content="YNode">
-<meta property="og:description" content="break continue 和 return 的用法 instanceof constructor hasOwnProperty in call() / apply() forEach() cloneNode() cssText setTimeout() / setInterval() encodeURIComponent() / decodeURIComponent() getBoundin">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-05T09:35:55.460Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript日常笔记">
-<meta name="twitter:description" content="break continue 和 return 的用法 instanceof constructor hasOwnProperty in call() / apply() forEach() cloneNode() cssText setTimeout() / setInterval() encodeURIComponent() / decodeURIComponent() getBoundin">
 
 
 
@@ -100,16 +75,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
+    scheme: 'Pisces',
+    version: '6.0.5',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -121,14 +94,43 @@
 </script>
 
 
+  
+
+
+
+
+  
+  <meta name="keywords" content="javascript," />
+
+
+<meta name="description" content="一、break、 continue 和 return 的用法 break：会使运行的程序立刻退出包含在最内层的循环或者退出一个switch语句栗子1：12345for(var i=1;i&amp;lt;=10;i++)&amp;#123;    if(i==6) break;    document.write(i);&amp;#125;//输出结果：12345">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript知识点笔记">
+<meta property="og:url" content="http://yoursite.com/2017/04/30/javascript-base/index.html">
+<meta property="og:site_name" content="YNode">
+<meta property="og:description" content="一、break、 continue 和 return 的用法 break：会使运行的程序立刻退出包含在最内层的循环或者退出一个switch语句栗子1：12345for(var i=1;i&amp;lt;=10;i++)&amp;#123;    if(i==6) break;    document.write(i);&amp;#125;//输出结果：12345">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-11T06:19:40.512Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript知识点笔记">
+<meta name="twitter:description" content="一、break、 continue 和 return 的用法 break：会使运行的程序立刻退出包含在最内层的循环或者退出一个switch语句栗子1：12345for(var i=1;i&amp;lt;=10;i++)&amp;#123;    if(i==6) break;    document.write(i);&amp;#125;//输出结果：12345">
+
+
+
+
+
 
   <link rel="canonical" href="http://yoursite.com/2017/04/30/javascript-base/"/>
 
 
 
-
-
-  <title>javascript日常笔记 | YNode</title>
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>javascript知识点笔记 | YNode</title>
   
 
 
@@ -138,9 +140,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -151,7 +181,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"> <div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -185,21 +215,28 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">11</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">0</span>
+              </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">12</span>
+              </a>
         </li>
       
 
@@ -211,9 +248,15 @@
 </nav>
 
 
+  
+
+
 
  </div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
@@ -230,6 +273,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -240,7 +285,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="frongYang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -252,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javascript日常笔记</h1>
+          <h1 class="post-title" itemprop="name headline">javascript知识点笔记</h1>
         
 
         <div class="post-meta">
@@ -264,11 +309,10 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-30T15:00:51+08:00">
-                2017-04-30
-              </time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-30T15:00:51+08:00">2017-04-30</time>
             
 
+            
             
 
             
@@ -302,34 +346,19 @@
       
 
       
-        <ul>
-<li>break continue 和 return 的用法</li>
-<li>instanceof</li>
-<li>constructor</li>
-<li>hasOwnProperty</li>
-<li>in</li>
-<li>call() / apply()</li>
-<li>forEach()</li>
-<li>cloneNode()</li>
-<li>cssText</li>
-<li>setTimeout() / setInterval()</li>
-<li>encodeURIComponent() / decodeURIComponent()</li>
-<li>getBoundingClientRect()</li>
-<li>createDocumentFragment</li>
-<li>defaultView / getComputedStyle()</li>
+        <h2 id="一、break、-continue-和-return-的用法"><a href="#一、break、-continue-和-return-的用法" class="headerlink" title="一、break、 continue 和 return 的用法"></a>一、break、 continue 和 return 的用法</h2><ul>
+<li>break：会使运行的程序立刻退出包含在最内层的循环或者退出一个switch语句<br>栗子1：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">6</span>) <span class="keyword">break</span>;</span><br><span class="line">    <span class="built_in">document</span>.write(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出结果：12345</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <a id="more"></a>
-<h2 id="break、-continue-和-return-的用法"><a href="#break、-continue-和-return-的用法" class="headerlink" title="break、 continue 和 return 的用法"></a>break、 continue 和 return 的用法</h2><ul>
-<li><p>break：会使运行的程序立刻退出包含在最内层的循环或者退出一个switch语句<br>栗子1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i=1;i&lt;=10;i++)&#123;</span><br><span class="line">    if(i==6) break;</span><br><span class="line">    document.write(i);</span><br><span class="line">&#125;</span><br><span class="line">//输出结果：12345</span><br></pre></td></tr></table></figure>
-</li>
+<ul>
 <li><p>continue：和break相似，不同的是，它不是退出一个循环，而是开始循环的一次新迭代，continue语句只能用在while语句、do/while语句、for语句、或者for/in语句的循环体内，在其它地方使用都会引起错误！</p>
 </li>
 <li><p>return： return语句就是用于指定函数返回的值。return语句只能出现在函数体内，出现在代码中的其他任何地方都会造成语法错误！</p>
 </li>
 </ul>
 <hr>
-<h2 id="instanceof："><a href="#instanceof：" class="headerlink" title="instanceof："></a>instanceof：</h2><ul>
+<h2 id="二、instanceof："><a href="#二、instanceof：" class="headerlink" title="二、instanceof："></a>二、instanceof：</h2><ul>
 <li><p>A instanceof B</p>
 </li>
 <li><p>A 是一个对象，B 是定义类的构造函数，如果 A 是 B 的实例，返回true，（也就是说，如果 A 继承自 B.prototype，返回true；这里的继承可以不是直接继承，如果 A 所继承的对象继承自另一个对象， B 继承自 B.prototype，返回的结果也为true）;</p>
@@ -341,115 +370,118 @@
 <li>每个javascript函数都自动拥有一个 prototype 属性，这个属性的值是一个对象，这个对象包含唯一一个不可枚举属性 constructor，constructor 属性的值是一个函数对象。</li>
 <li>新定义的 prototype 不含有 constructor 属性</li>
 </ul>
-<p>栗子1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var F = function()&#123;&#125;</span><br><span class="line">var p = F.prototype; // 这是与F相关联的原型对象</span><br><span class="line">var c = p.constructor; // 这是与原型相关联的函数</span><br><span class="line">c === F; // true, 对于任意函数F.prototype.constructor == F</span><br><span class="line"></span><br><span class="line">// 可以看到构造函数的原型中存在预先定义好的constructor 属性，这意味着对象通常继承的constructor均指代它们的构造函数。</span><br></pre></td></tr></table></figure></p>
-<p>栗子2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var o = new F();</span><br><span class="line">o.constructor === F; // true,constructor属性指代这个类</span><br></pre></td></tr></table></figure></p>
+<p>栗子1：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> p = F.prototype; <span class="comment">// 这是与F相关联的原型对象</span></span><br><span class="line"><span class="keyword">var</span> c = p.constructor; <span class="comment">// 这是与原型相关联的函数</span></span><br><span class="line">c === F; <span class="comment">// true, 对于任意函数F.prototype.constructor == F</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以看到构造函数的原型中存在预先定义好的constructor 属性，这意味着对象通常继承的constructor均指代它们的构造函数。</span></span><br></pre></td></tr></table></figure></p>
+<p>栗子2：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> F();</span><br><span class="line">o.constructor === F; <span class="comment">// true,constructor属性指代这个类</span></span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h2><ul>
+<h2 id="三、hasOwnProperty"><a href="#三、hasOwnProperty" class="headerlink" title="三、hasOwnProperty"></a>三、hasOwnProperty</h2><ul>
 <li>A.hasOwnProperty(“B”);</li>
 <li>A 对象，B 属性名，如果 B 是 A 的自有属性 (B 不是 A<br>的继承属性)，则返回true。</li>
 </ul>
-<p>栗子1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var o = &#123; x: 1 &#125;;</span><br><span class="line">o.hasOwnProperty(&quot;x&quot;); //true,o 有一个自有属性 x</span><br><span class="line">o.hasOwnProperty(&quot;y&quot;); // false, o 中不存在属性 y</span><br><span class="line">o.hasOwnProperty(&quot;toString&quot;); //false, toString 是继承属性</span><br></pre></td></tr></table></figure></p>
+<p>栗子1：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; <span class="attr">x</span>: <span class="number">1</span> &#125;;</span><br><span class="line">o.hasOwnProperty(<span class="string">"x"</span>); <span class="comment">//true,o 有一个自有属性 x</span></span><br><span class="line">o.hasOwnProperty(<span class="string">"y"</span>); <span class="comment">// false, o 中不存在属性 y</span></span><br><span class="line">o.hasOwnProperty(<span class="string">"toString"</span>); <span class="comment">//false, toString 是继承属性</span></span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="in"><a href="#in" class="headerlink" title="in"></a>in</h2><ul>
+<h2 id="四、in"><a href="#四、in" class="headerlink" title="四、in"></a>四、in</h2><ul>
 <li>“A” in B</li>
 <li>A 是属性名（字符串），B 是对象，如果对象的自有属性或继承属性中包含这个属性则返回true</li>
 <li>可以区分不存在的属性和存在但值为undefined的属性</li>
 </ul>
-<p>栗子1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var o = &#123; x: 1 &#125;;</span><br><span class="line">&quot;x&quot; in o; // true  &quot;x&quot;是 o 的属性</span><br><span class="line">&quot;y&quot; in o; // false &quot;y&quot;不是 o 的属性</span><br><span class="line">&quot;toString&quot; in o; // true o 继承 toString 属性</span><br></pre></td></tr></table></figure></p>
+<p>栗子1：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; <span class="attr">x</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="string">"x"</span> <span class="keyword">in</span> o; <span class="comment">// true  "x"是 o 的属性</span></span><br><span class="line"><span class="string">"y"</span> <span class="keyword">in</span> o; <span class="comment">// false "y"不是 o 的属性</span></span><br><span class="line"><span class="string">"toString"</span> <span class="keyword">in</span> o; <span class="comment">// true o 继承 toString 属性</span></span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="call-apply"><a href="#call-apply" class="headerlink" title="call() / apply()"></a>call() / apply()</h2><ul>
+<h2 id="五、call-apply"><a href="#五、call-apply" class="headerlink" title="五、call() / apply()"></a>五、call() / apply()</h2><ul>
 <li>改变this的指向； 当一个 对象 没有某个方法，但是其他的有，我们可以借助call或apply用其它对象的方法来操作。</li>
 </ul>
-<h3 id="call"><a href="#call" class="headerlink" title="call()"></a>call()</h3><ul>
+<h3 id="1、call"><a href="#1、call" class="headerlink" title="1、call()"></a>1、call()</h3><ul>
 <li>参数长度确定时使用</li>
 <li>A.call(B, arg1, arg2…)</li>
 </ul>
-<h3 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h3><ul>
+<h3 id="2、apply"><a href="#2、apply" class="headerlink" title="2、apply()"></a>2、apply()</h3><ul>
 <li>参数长度不确定时使用</li>
 <li>A.call(B, [arg1, arg2…])</li>
 </ul>
-<p>栗子1：（from MDN web docs）调用父构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Product(name, price)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.price = price;</span><br><span class="line">&#125;</span><br><span class="line">//===============call==============</span><br><span class="line"></span><br><span class="line">function Food(name, price)&#123;</span><br><span class="line">    Product.call(this, name, price);</span><br><span class="line">    this.category = &apos;food&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"></span><br><span class="line">function Food(name, price)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.price = price;</span><br><span class="line">    this.category = &apos;food&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>栗子2：（from MDN web docs）调用匿名函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//===============call==============</span><br><span class="line"></span><br><span class="line">var animals = [</span><br><span class="line">    &#123;species: &apos;Lion&apos;, name:&apos;King&apos;&#125;,</span><br><span class="line">    &#123;species: &apos;Whale&apos;, name:&apos;Fail&apos;&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">for(var i = 0; i &lt; animals.length; i++)&#123;</span><br><span class="line">    (function(i)&#123;</span><br><span class="line">        this.print = function()&#123;</span><br><span class="line">            console.log(&quot;#&quot; + i + &quot; &quot; + this.species + &quot;: &quot; + this.name);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        this.print();</span><br><span class="line">    &#125;).call(animals[i], i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>栗子1：（from MDN web docs）调用父构造函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Product</span>(<span class="params">name, price</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.price = price;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//===============call==============</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Food</span>(<span class="params">name, price</span>)</span>&#123;</span><br><span class="line">    Product.call(<span class="keyword">this</span>, name, price);</span><br><span class="line">    <span class="keyword">this</span>.category = <span class="string">'food'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">等同于：</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Food</span>(<span class="params">name, price</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.price = price;</span><br><span class="line">    <span class="keyword">this</span>.category = <span class="string">'food'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>栗子2：（from MDN web docs）调用匿名函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//===============call==============</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> animals = [</span><br><span class="line">    &#123;<span class="attr">species</span>: <span class="string">'Lion'</span>, <span class="attr">name</span>:<span class="string">'King'</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">species</span>: <span class="string">'Whale'</span>, <span class="attr">name</span>:<span class="string">'Fail'</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; animals.length; i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"#"</span> + i + <span class="string">" "</span> + <span class="keyword">this</span>.species + <span class="string">": "</span> + <span class="keyword">this</span>.name);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.print();</span><br><span class="line">    &#125;).call(animals[i], i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>栗子3：（from MDN web docs）调用函数并且指定上下文的’this’</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function greet()&#123;</span><br><span class="line">    var reply = [this.person, &apos;Is An Awesome&apos;, this.role].join(&apos; &apos;);</span><br><span class="line">    console.log(reply);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var i = &#123;</span><br><span class="line">    person: &apos;Douglas Crockford&apos;, role: &apos;Javascript Developer&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet.call(i); //Douglas Crockford Is An Awesome Javascript Developer</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> reply = [<span class="keyword">this</span>.person, <span class="string">'Is An Awesome'</span>, <span class="keyword">this</span>.role].join(<span class="string">' '</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(reply);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = &#123;</span><br><span class="line">    person: <span class="string">'Douglas Crockford'</span>, <span class="attr">role</span>: <span class="string">'Javascript Developer'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet.call(i); <span class="comment">//Douglas Crockford Is An Awesome Javascript Developer</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h2><ul>
+<h2 id="六、forEach"><a href="#六、forEach" class="headerlink" title="六、forEach()"></a>六、forEach()</h2><ul>
 <li>遍历数组的函数,传递的函数做为forEach的第一个参数，forEach使用三个参数调用该函数：数组元素，元素的索引，数组本身；【注意：forEach无法在所有元素都传递给调用函数的函数之前终止遍历（即没有像for循环中使用的相应的break语句），如果需要终止循环，必须把forEach()放在一个try块中，并能抛出一个异常，如果forEach()调用函数抛出foreach.break异常，循环会提前终止】</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data.forEach(function(v, i ,a)&#123;</span><br><span class="line"></span><br><span class="line">&#125;）</span><br><span class="line"></span><br><span class="line">// v:数组元素</span><br><span class="line">// i：元素索引</span><br><span class="line">// a：数组本身</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">v, i ,a</span>)</span>&#123;</span><br><span class="line"><span class="comment">// v:数组元素</span></span><br><span class="line"><span class="comment">// i：元素索引</span></span><br><span class="line"><span class="comment">// a：数组本身</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="cloneNode"><a href="#cloneNode" class="headerlink" title="cloneNode()"></a>cloneNode()</h2><ul>
+<h2 id="七、cloneNode"><a href="#七、cloneNode" class="headerlink" title="七、cloneNode()"></a>七、cloneNode()</h2><ul>
 <li>创建节点的拷贝，并返回该副本；克隆所有属性以及它们的值。</li>
 <li>语法：var dupNode = node.cloneNode(deep);</li>
 <li>dupNode：要克隆的节点</li>
 <li>node：克隆的新节点 node</li>
 <li>deep(可选)： true==&gt;克隆所有后代;false只克隆指定的节点</li>
 </ul>
-<p>栗子：（from W3School）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//html</span><br><span class="line">&lt;ul id=&quot;myList1&quot;&gt;&lt;li&gt;Coffee&lt;/li&gt;&lt;li&gt;Tea&lt;/li&gt;&lt;/ul&gt;</span><br><span class="line">&lt;ul id=&quot;myList2&quot;&gt;&lt;li&gt;Water&lt;/li&gt;&lt;li&gt;Milk&lt;/li&gt;&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// js</span><br><span class="line">var node=document.getElementById(&quot;myList2&quot;).lastChild.cloneNode(true);</span><br><span class="line">document.getElementById(&quot;myList1&quot;).appendChild(node);</span><br><span class="line"></span><br><span class="line">// 克隆之前</span><br><span class="line">//myList1:</span><br><span class="line">Coffee</span><br><span class="line">Tea</span><br><span class="line"></span><br><span class="line">//myList2:</span><br><span class="line">Water</span><br><span class="line">Milk</span><br><span class="line"></span><br><span class="line">// 克隆之后</span><br><span class="line">//myList1:</span><br><span class="line">Coffee</span><br><span class="line">Tea</span><br><span class="line">Milk</span><br><span class="line"></span><br><span class="line">//myList2:</span><br><span class="line">Water</span><br><span class="line">Milk</span><br></pre></td></tr></table></figure></p>
+<p>栗子：（from W3School）<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//html</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"myList1"</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span>Coffee<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span>Tea<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"myList2"</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span>Water<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span>Milk<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">// js</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> node=<span class="built_in">document</span>.getElementById(<span class="string">"myList2"</span>).lastChild.cloneNode(<span class="literal">true</span>);</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"myList1"</span>).appendChild(node);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// 克隆之前</span><br><span class="line">//myList1:</span><br><span class="line">Coffee</span><br><span class="line">Tea</span><br><span class="line"></span><br><span class="line">//myList2:</span><br><span class="line">Water</span><br><span class="line">Milk</span><br><span class="line"></span><br><span class="line">// 克隆之后</span><br><span class="line">//myList1:</span><br><span class="line">Coffee</span><br><span class="line">Tea</span><br><span class="line">Milk</span><br><span class="line"></span><br><span class="line">//myList2:</span><br><span class="line">Water</span><br><span class="line">Milk</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="cssText"><a href="#cssText" class="headerlink" title="cssText"></a>cssText</h2><ul>
+<h2 id="八、cssText"><a href="#八、cssText" class="headerlink" title="八、cssText"></a>八、cssText</h2><ul>
 <li>批量修改样式，可以尽量避免页面reflow，提高页面性能</li>
 <li>会把原有的cssText清掉, 所以最好使用 累加 的方法；</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">element.style.cssText += &quot;width:20px;height:20px;border:solid 1px red;&quot;;</span><br><span class="line"></span><br><span class="line">// cssText（假如不为空）在IE中最后一个分号会被删掉，可以在前面添加一个分号</span><br><span class="line">Element.style.cssText += ‘;width:100px;height:100px;top:100px;left:100px;’</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">element.style.cssText += <span class="string">"width:20px;height:20px;border:solid 1px red;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// cssText（假如不为空）在IE中最后一个分号会被删掉，可以在前面添加一个分号</span></span><br><span class="line">Element.style.cssText += ‘;width:<span class="number">100</span>px;height:<span class="number">100</span>px;top:<span class="number">100</span>px;left:<span class="number">100</span>px;’</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="setTimeout-setInterval"><a href="#setTimeout-setInterval" class="headerlink" title="setTimeout() / setInterval()"></a>setTimeout() / setInterval()</h2><ul>
+<h2 id="九、setTimeout-setInterval"><a href="#九、setTimeout-setInterval" class="headerlink" title="九、setTimeout() / setInterval()"></a>九、setTimeout() / setInterval()</h2><ul>
 <li>用来注册在指定的时间之后单次或重复调用的函数</li>
 <li>两者都会返回一个值，可以传递给clearTimeout()用于取消这个函数的执行</li>
 <li>由于历史原因，第一个参数可以作为字符串传入，如果这么做，那这个字符串会在指定的超时时间或间隔之后进行求值（相当与执行eval()）</li>
 <li>HTML5 规范还允许传入额外的参数（不支持IE）</li>
 </ul>
-<h3 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h3><ul>
+<h3 id="1、setTimeout"><a href="#1、setTimeout" class="headerlink" title="1、setTimeout"></a>1、setTimeout</h3><ul>
 <li>用来实现一个函数在指定的毫秒数之后运行</li>
 </ul>
-<h3 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval"></a>setInterval</h3><ul>
-<li>与setTimeout一样，只是这个函数会在指定毫秒数的间隔里重复调用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(undateClock, 60000);// 每60s调用一个undateClock</span><br></pre></td></tr></table></figure>
+<h3 id="2、setInterval"><a href="#2、setInterval" class="headerlink" title="2、setInterval"></a>2、setInterval</h3><ul>
+<li>与setTimeout一样，只是这个函数会在指定毫秒数的间隔里重复调用<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(undateClock, <span class="number">60000</span>);<span class="comment">// 每60s调用一个undateClock</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>栗子：(form JavaScript 权威指南)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function invoke(f, start, interval, end)&#123;</span><br><span class="line">    if(!start) start= 0 ; // 默认设置为0 ms</span><br><span class="line">    if(arguments.length &lt;= 2)&#123; // 单次调用模式</span><br><span class="line">        setTimeout(f, start); // start ms 后 单次调用 f()</span><br><span class="line">    &#125;else &#123; // 多次调用模式</span><br><span class="line">        setTimeout(repeat, start); // 在 start 调用repeat()</span><br><span class="line">        function repeat()&#123; </span><br><span class="line">            var h = setInterval(f, interval); // 循环调用f()</span><br><span class="line">            if(end) setTimeout(function()&#123;clearInterval(h)&#125;, end);// 在end ms后停止调用，前提是end已经定义</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>栗子：(form JavaScript 权威指南)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">invoke</span>(<span class="params">f, start, interval, end</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!start) start= <span class="number">0</span> ; <span class="comment">// 默认设置为0 ms</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>.length &lt;= <span class="number">2</span>)&#123; <span class="comment">// 单次调用模式</span></span><br><span class="line">        setTimeout(f, start); <span class="comment">// start ms 后 单次调用 f()</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123; <span class="comment">// 多次调用模式</span></span><br><span class="line">        setTimeout(repeat, start); <span class="comment">// 在 start 调用repeat()</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">            <span class="keyword">var</span> h = setInterval(f, interval); <span class="comment">// 循环调用f()</span></span><br><span class="line">            <span class="keyword">if</span>(end) setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;clearInterval(h)&#125;, end);<span class="comment">// 在end ms后停止调用，前提是end已经定义</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="encodeURIComponent-decodeURIComponent"><a href="#encodeURIComponent-decodeURIComponent" class="headerlink" title="encodeURIComponent() / decodeURIComponent()"></a>encodeURIComponent() / decodeURIComponent()</h2><h3 id="encodeURIComponent"><a href="#encodeURIComponent" class="headerlink" title="encodeURIComponent"></a>encodeURIComponent</h3><ul>
+<h2 id="十、encodeURIComponent-decodeURIComponent"><a href="#十、encodeURIComponent-decodeURIComponent" class="headerlink" title="十、encodeURIComponent() / decodeURIComponent()"></a>十、encodeURIComponent() / decodeURIComponent()</h2><h3 id="1、encodeURIComponent"><a href="#1、encodeURIComponent" class="headerlink" title="1、encodeURIComponent"></a>1、encodeURIComponent</h3><ul>
 <li>对统一资源标识符（URI）的组成部分进行编码的方法</li>
-<li>转义除了字母、数字、(、)、.、!、~、*、’、-和_之外的所有字符<br>栗子：(from MDN web docs)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var fileName = &apos;my file(2).txt&apos;;</span><br><span class="line">var header = &quot;Content-Disposition: attachment; filename*=UTF-8&apos;&apos;&quot; </span><br><span class="line">             + encodeRFC5987ValueChars(fileName);</span><br><span class="line"></span><br><span class="line">console.log(header); </span><br><span class="line">// 输出 &quot;Content-Disposition: attachment; filename*=UTF-8&apos;&apos;my%20file%282%29.txt&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function encodeRFC5987ValueChars (str) &#123;</span><br><span class="line">    return encodeURIComponent(str).</span><br><span class="line">        // 注意，仅管 RFC3986 保留 &quot;!&quot;，但 RFC5987 并没有</span><br><span class="line">        // 所以我们并不需要过滤它</span><br><span class="line">        replace(/[&apos;()]/g, escape). // i.e., %27 %28 %29</span><br><span class="line">        replace(/\*/g, &apos;%2A&apos;).</span><br><span class="line">            // 下面的并不是 RFC5987 中 URI 编码必须的</span><br><span class="line">            // 所以对于 |`^ 这3个字符我们可以稍稍提高一点可读性</span><br><span class="line">            replace(/%(?:7C|60|5E)/g, unescape);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>转义除了字母、数字、(、)、.、!、~、*、’、-和_之外的所有字符<br>栗子：(from MDN web docs)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fileName = <span class="string">'my file(2).txt'</span>;</span><br><span class="line"><span class="keyword">var</span> header = <span class="string">"Content-Disposition: attachment; filename*=UTF-8''"</span> </span><br><span class="line">             + encodeRFC5987ValueChars(fileName);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(header); </span><br><span class="line"><span class="comment">// 输出 "Content-Disposition: attachment; filename*=UTF-8''my%20file%282%29.txt"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encodeRFC5987ValueChars</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">encodeURIComponent</span>(str).</span><br><span class="line">        <span class="comment">// 注意，仅管 RFC3986 保留 "!"，但 RFC5987 并没有</span></span><br><span class="line">        <span class="comment">// 所以我们并不需要过滤它</span></span><br><span class="line">        replace(<span class="regexp">/['()]/g</span>, <span class="built_in">escape</span>). <span class="comment">// i.e., %27 %28 %29</span></span><br><span class="line">        replace(<span class="regexp">/\*/g</span>, <span class="string">'%2A'</span>).</span><br><span class="line">            <span class="comment">// 下面的并不是 RFC5987 中 URI 编码必须的</span></span><br><span class="line">            <span class="comment">// 所以对于 |`^ 这3个字符我们可以稍稍提高一点可读性</span></span><br><span class="line">            replace(<span class="regexp">/%(?:7C|60|5E)/g</span>, <span class="built_in">unescape</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="decodeURIComponent"><a href="#decodeURIComponent" class="headerlink" title="decodeURIComponent"></a>decodeURIComponent</h3><ul>
+<h3 id="2、decodeURIComponent"><a href="#2、decodeURIComponent" class="headerlink" title="2、decodeURIComponent"></a>2、decodeURIComponent</h3><ul>
 <li>用于解码由 encodeURIComponent 方法或者其它类似方法编码的部分统一资源标识符（URI）</li>
-<li>将已编码 URI 中所有能识别的转义序列转换成原字符<br>栗子：(from MDN web docs)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">decodeURIComponent(&quot;JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B&quot;);</span><br><span class="line">// &quot;JavaScript_шеллы&quot;</span><br></pre></td></tr></table></figure>
+<li>将已编码 URI 中所有能识别的转义序列转换成原字符<br>栗子：(from MDN web docs)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">decodeURIComponent</span>(<span class="string">"JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"</span>);</span><br><span class="line"><span class="comment">// "JavaScript_шеллы"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="getBoundingClientRect"><a href="#getBoundingClientRect" class="headerlink" title="getBoundingClientRect()"></a>getBoundingClientRect()</h2><ul>
+<h2 id="十一、getBoundingClientRect"><a href="#十一、getBoundingClientRect" class="headerlink" title="十一、getBoundingClientRect()"></a>十一、getBoundingClientRect()</h2><ul>
 <li>返回元素在视口坐标中的位置，返回一个有left、right、top、bottom属性的对象。</li>
 <li>left和top属性表示元素的左上角的X和Y坐标，right和bottom属性表示元素右下角的X和Y坐标</li>
 <li>在很多浏览器中，还返回 width和height，在是在ie中未实现</li>
 <li>不是实时的，在用户滚动或改变浏览器窗口大小时不会更新</li>
 </ul>
-<p>栗子：（from JavaScript权威指南）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var box = e.getBoundingClientRect(); //获得在视口坐标中的位置</span><br><span class="line">var offsets = getScrollOffsets();</span><br><span class="line">var x = box.left + offset.x;</span><br><span class="line">var y = box.top + offset.y</span><br><span class="line">var w = box.width || (box.right - box.left);</span><br><span class="line">var h = box.height || (box.bottom - box.top);</span><br><span class="line"></span><br><span class="line">// 滚动条位置</span><br><span class="line">function getScrollOffsets(w)&#123;</span><br><span class="line">    w = w || window;</span><br><span class="line"></span><br><span class="line">    // 除ie8- 版本，其他浏览器都能用</span><br><span class="line">    if(w.pageXOffset != null) return &#123;x: w.pageXOffset, y: w.pageYOffset&#125;;</span><br><span class="line"></span><br><span class="line">    // 对标准模式下的浏览器</span><br><span class="line">    var d = w.document;</span><br><span class="line">    if(document.compatMode == &quot;CSS1Compat&quot;)&#123;</span><br><span class="line">        return &#123;x: d.documentElement.scrollLeft, y： d.documentElement.scrollTop&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 对怪异模式下的浏览器</span><br><span class="line">    return &#123;x: d.body.scrollLeft, y: d.body.scrollTop&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>栗子：（from JavaScript权威指南）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = e.getBoundingClientRect(); <span class="comment">//获得在视口坐标中的位置</span></span><br><span class="line"><span class="keyword">var</span> offsets = getScrollOffsets();</span><br><span class="line"><span class="keyword">var</span> x = box.left + offset.x;</span><br><span class="line"><span class="keyword">var</span> y = box.top + offset.y</span><br><span class="line"><span class="keyword">var</span> w = box.width || (box.right - box.left);</span><br><span class="line"><span class="keyword">var</span> h = box.height || (box.bottom - box.top);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 滚动条位置</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScrollOffsets</span>(<span class="params">w</span>)</span>&#123;</span><br><span class="line">    w = w || <span class="built_in">window</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 除ie8- 版本，其他浏览器都能用</span></span><br><span class="line">    <span class="keyword">if</span>(w.pageXOffset != <span class="literal">null</span>) <span class="keyword">return</span> &#123;<span class="attr">x</span>: w.pageXOffset, <span class="attr">y</span>: w.pageYOffset&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对标准模式下的浏览器</span></span><br><span class="line">    <span class="keyword">var</span> d = w.document;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.compatMode == <span class="string">"CSS1Compat"</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="attr">x</span>: d.documentElement.scrollLeft, y： d.documentElement.scrollTop&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对怪异模式下的浏览器</span></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="attr">x</span>: d.body.scrollLeft, <span class="attr">y</span>: d.body.scrollTop&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="createDocumentFragment"><a href="#createDocumentFragment" class="headerlink" title="createDocumentFragment"></a>createDocumentFragment</h2><ul>
-<li>作为其他节点的一个临时容器，是独立的，通常用在 创建文档片段，将元素附加到文档片段，然后将文档片段附加到DOM树<br>栗子：（from JavaScript权威指南）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 倒叙排列节点n的子节点</span><br><span class="line">function reverse(n)&#123;</span><br><span class="line">    // 创建一个DocumentFragment作为临时容器</span><br><span class="line">    var f = document.createDocumentFragment();</span><br><span class="line"></span><br><span class="line">    // 从后至前循环子节点，将每一个子节点移动到文档片段中</span><br><span class="line">    // 注意：给f添加一个节点，改节点自动的会从n中删除</span><br><span class="line">    while(n.lastChild) f.appendChild(n.lastChild);</span><br><span class="line"></span><br><span class="line">    // 把f 的所有子节点一次性全部移回n中</span><br><span class="line">    n.appendChild(f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十二、createDocumentFragment"><a href="#十二、createDocumentFragment" class="headerlink" title="十二、createDocumentFragment"></a>十二、createDocumentFragment</h2><ul>
+<li>作为其他节点的一个临时容器，是独立的，通常用在 创建文档片段，将元素附加到文档片段，然后将文档片段附加到DOM树<br>栗子：（from JavaScript权威指南）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 倒叙排列节点n的子节点</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个DocumentFragment作为临时容器</span></span><br><span class="line">    <span class="keyword">var</span> f = <span class="built_in">document</span>.createDocumentFragment();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从后至前循环子节点，将每一个子节点移动到文档片段中</span></span><br><span class="line">    <span class="comment">// 注意：给f添加一个节点，改节点自动的会从n中删除</span></span><br><span class="line">    <span class="keyword">while</span>(n.lastChild) f.appendChild(n.lastChild);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把f 的所有子节点一次性全部移回n中</span></span><br><span class="line">    n.appendChild(f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="defaultView-getComputedStyle"><a href="#defaultView-getComputedStyle" class="headerlink" title="defaultView / getComputedStyle()"></a>defaultView / getComputedStyle()</h2><h3 id="defaultView"><a href="#defaultView" class="headerlink" title="defaultView"></a>defaultView</h3><ul>
+<h2 id="十三、defaultView-getComputedStyle"><a href="#十三、defaultView-getComputedStyle" class="headerlink" title="十三、defaultView / getComputedStyle()"></a>十三、defaultView / getComputedStyle()</h2><h3 id="1、defaultView"><a href="#1、defaultView" class="headerlink" title="1、defaultView"></a>1、defaultView</h3><ul>
 <li>在浏览器中，该属性返回当前 document 对象所关联的 window 对象，如果没有，会返回 null</li>
 <li>只读</li>
 <li>IE 9 以下版本不支持</li>
 <li>使用方式： document.defaultView</li>
 </ul>
-<h3 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle"></a>getComputedStyle</h3><ul>
+<h3 id="2、getComputedStyle"><a href="#2、getComputedStyle" class="headerlink" title="2、getComputedStyle"></a>2、getComputedStyle</h3><ul>
 <li>是一个可以获取当前元素所有最终使用的CSS属性值，返回的是一个CSS样式声明对象([object CSSStyleDeclaration])，只读</li>
 <li>语法：window.getComputedStyle(element, [pseudoElt]);</li>
 <li>element:用于获取计算样式的Element</li>
 <li>pseudoElt: 可选，指定一个要匹配的伪元素的字符串。必须对普通元素省略（或null）。</li>
 </ul>
-<p>栗子1：（from MDN web docs）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let elem1 = document.getElementById(&quot;elemId&quot;);</span><br><span class="line">let style = window.getComputedStyle(elem1, null);</span><br><span class="line"></span><br><span class="line">// 它等价于</span><br><span class="line">// let style = document.defaultView.getComputedStyle(elem1, null);</span><br></pre></td></tr></table></figure></p>
-<p>栗子2：(from MDN web docs）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"> #elem-container&#123;</span><br><span class="line">   position: absolute;</span><br><span class="line">   left:     100px;</span><br><span class="line">   top:      200px;</span><br><span class="line">   height:   100px;</span><br><span class="line"> &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;elem-container&quot;&gt;dummy&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;output&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  function getTheStyle()&#123;</span><br><span class="line">    let elem = document.getElementById(&quot;elem-container&quot;);</span><br><span class="line"></span><br><span class="line">    //getPropertyValue()返回一个DOMString含有一个指定的CSS属性的值</span><br><span class="line">    let theCSSprop = window.getComputedStyle(elem,null).getPropertyValue(&quot;height&quot;);</span><br><span class="line">    document.getElementById(&quot;output&quot;).innerHTML = theCSSprop;</span><br><span class="line">   &#125;</span><br><span class="line">  getTheStyle();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>栗子1：（from MDN web docs）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> elem1 = <span class="built_in">document</span>.getElementById(<span class="string">"elemId"</span>);</span><br><span class="line"><span class="keyword">let</span> style = <span class="built_in">window</span>.getComputedStyle(elem1, <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 它等价于</span></span><br><span class="line"><span class="comment">// let style = document.defaultView.getComputedStyle(elem1, null);</span></span><br></pre></td></tr></table></figure></p>
+<p>栗子2：(from MDN web docs）<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"> <span class="selector-id">#elem-container</span>&#123;</span></span><br><span class="line"><span class="undefined">   position: absolute;</span></span><br><span class="line"><span class="undefined">   left:     100px;</span></span><br><span class="line"><span class="undefined">   top:      200px;</span></span><br><span class="line"><span class="undefined">   height:   100px;</span></span><br><span class="line"><span class="undefined"> &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"elem-container"</span>&gt;</span>dummy<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"output"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">getTheStyle</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> elem = <span class="built_in">document</span>.getElementById(<span class="string">"elem-container"</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//getPropertyValue()返回一个DOMString含有一个指定的CSS属性的值</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> theCSSprop = <span class="built_in">window</span>.getComputedStyle(elem,<span class="literal">null</span>).getPropertyValue(<span class="string">"height"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">"output"</span>).innerHTML = theCSSprop;</span></span><br><span class="line"><span class="undefined">   &#125;</span></span><br><span class="line"><span class="undefined">  getTheStyle();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>待续。。。</p>
 
       
     </div>
+
+    
+
     
     
     
@@ -515,9 +547,6 @@
           </div>
           
 
-
-          
-
   
 
 
@@ -556,58 +585,87 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
+                src="/images/avatar.png"
                 alt="frongYang" />
             
               <p class="site-author-name" itemprop="name">frongYang</p>
               <p class="site-description motion-element" itemprop="description">记录学习的技能/遇到的问题</p>
           </div>
 
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
+          
+            <nav class="site-state motion-element">
               
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
+                <div class="site-state-item site-state-posts">
                 
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">标签</span>
+                  <a href="/archives/">
                 
-              </div>
-            
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-          </nav>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
 
           
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/frontYang" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
             </div>
           
 
           
-
-          
           
 
           
           
 
+          
+            
+          
           
 
         </div>
@@ -623,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#break、-continue-和-return-的用法"><span class="nav-number">1.</span> <span class="nav-text">break、 continue 和 return 的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof："><span class="nav-number">2.</span> <span class="nav-text">instanceof：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">3.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hasOwnProperty-NaN"><span class="nav-number">4.</span> <span class="nav-text">hasOwnProperty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in"><span class="nav-number">5.</span> <span class="nav-text">in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call-apply"><span class="nav-number">6.</span> <span class="nav-text">call() / apply()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#call"><span class="nav-number">6.1.</span> <span class="nav-text">call()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">6.2.</span> <span class="nav-text">apply()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forEach"><span class="nav-number">7.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cloneNode"><span class="nav-number">8.</span> <span class="nav-text">cloneNode()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cssText"><span class="nav-number">9.</span> <span class="nav-text">cssText</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout-setInterval"><span class="nav-number">10.</span> <span class="nav-text">setTimeout() / setInterval()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setTimeout"><span class="nav-number">10.1.</span> <span class="nav-text">setTimeout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setInterval"><span class="nav-number">10.2.</span> <span class="nav-text">setInterval</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#encodeURIComponent-decodeURIComponent"><span class="nav-number">11.</span> <span class="nav-text">encodeURIComponent() / decodeURIComponent()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#encodeURIComponent"><span class="nav-number">11.1.</span> <span class="nav-text">encodeURIComponent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decodeURIComponent"><span class="nav-number">11.2.</span> <span class="nav-text">decodeURIComponent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getBoundingClientRect"><span class="nav-number">12.</span> <span class="nav-text">getBoundingClientRect()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#createDocumentFragment"><span class="nav-number">13.</span> <span class="nav-text">createDocumentFragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#defaultView-getComputedStyle"><span class="nav-number">14.</span> <span class="nav-text">defaultView / getComputedStyle()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#defaultView"><span class="nav-number">14.1.</span> <span class="nav-text">defaultView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getComputedStyle"><span class="nav-number">14.2.</span> <span class="nav-text">getComputedStyle</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、break、-continue-和-return-的用法"><span class="nav-number">1.</span> <span class="nav-text">一、break、 continue 和 return 的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、instanceof："><span class="nav-number">2.</span> <span class="nav-text">二、instanceof：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">3.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、hasOwnProperty"><span class="nav-number">4.</span> <span class="nav-text">三、hasOwnProperty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、in"><span class="nav-number">5.</span> <span class="nav-text">四、in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、call-apply"><span class="nav-number">6.</span> <span class="nav-text">五、call() / apply()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、call"><span class="nav-number">6.1.</span> <span class="nav-text">1、call()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、apply"><span class="nav-number">6.2.</span> <span class="nav-text">2、apply()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、forEach"><span class="nav-number">7.</span> <span class="nav-text">六、forEach()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、cloneNode"><span class="nav-number">8.</span> <span class="nav-text">七、cloneNode()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、cssText"><span class="nav-number">9.</span> <span class="nav-text">八、cssText</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、setTimeout-setInterval"><span class="nav-number">10.</span> <span class="nav-text">九、setTimeout() / setInterval()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、setTimeout"><span class="nav-number">10.1.</span> <span class="nav-text">1、setTimeout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、setInterval"><span class="nav-number">10.2.</span> <span class="nav-text">2、setInterval</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、encodeURIComponent-decodeURIComponent"><span class="nav-number">11.</span> <span class="nav-text">十、encodeURIComponent() / decodeURIComponent()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、encodeURIComponent"><span class="nav-number">11.1.</span> <span class="nav-text">1、encodeURIComponent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、decodeURIComponent"><span class="nav-number">11.2.</span> <span class="nav-text">2、decodeURIComponent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、getBoundingClientRect"><span class="nav-number">12.</span> <span class="nav-text">十一、getBoundingClientRect()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、createDocumentFragment"><span class="nav-number">13.</span> <span class="nav-text">十二、createDocumentFragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、defaultView-getComputedStyle"><span class="nav-number">14.</span> <span class="nav-text">十三、defaultView / getComputedStyle()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、defaultView"><span class="nav-number">14.1.</span> <span class="nav-text">1、defaultView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、getComputedStyle"><span class="nav-number">14.2.</span> <span class="nav-text">2、getComputedStyle</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -650,7 +708,11 @@
   <span class="author" itemprop="copyrightHolder">frongYang</span>
 
   
+
+  
 </div>
+
+
 
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
@@ -661,12 +723,13 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.5</div>
 
 
 
 
         
+
 
 
 
@@ -705,7 +768,11 @@
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -725,16 +792,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -743,42 +800,40 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.5"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.5"></script>
 
 
 
   
   
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.5"></script>
 
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.5"></script>
+
+
+
+  
 
 
 
@@ -805,8 +860,6 @@
 
 
 
-
-
   
 
 
@@ -820,6 +873,10 @@
   
 
   
+
+  
+  
+
   
 
   
