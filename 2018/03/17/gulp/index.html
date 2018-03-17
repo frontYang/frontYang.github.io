@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.5" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.5">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.5">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.5">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.5" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.0.5',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="gulp," />
+
+
+<meta name="description" content="一、安装 yarn global add gulp 运行：gulp tast名 项目目录结构(示例)12345678910111213141516171819202122232425262728293031323334353637383940+ src(项目原目录)  * images(图片)    - icon(需要生成精灵图的图片)      + icon1.png      + icon2.">
+<meta name="keywords" content="gulp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp学习笔记">
+<meta property="og:url" content="https://frontyang.github.io/2018/03/17/gulp/index.html">
+<meta property="og:site_name" content="YNode">
+<meta property="og:description" content="一、安装 yarn global add gulp 运行：gulp tast名 项目目录结构(示例)12345678910111213141516171819202122232425262728293031323334353637383940+ src(项目原目录)  * images(图片)    - icon(需要生成精灵图的图片)      + icon1.png      + icon2.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-17T09:14:21.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp学习笔记">
+<meta name="twitter:description" content="一、安装 yarn global add gulp 运行：gulp tast名 项目目录结构(示例)12345678910111213141516171819202122232425262728293031323334353637383940+ src(项目原目录)  * images(图片)    - icon(需要生成精灵图的图片)      + icon1.png      + icon2.">
+
+
+
+
+
+
+  <link rel="canonical" href="https://frontyang.github.io/2018/03/17/gulp/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>gulp学习笔记 | YNode</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YNode</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习的技能/遇到的问题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">12</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">1</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">13</span>
+              </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://frontyang.github.io/2018/03/17/gulp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="frongYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YNode">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">gulp学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T16:18:08+08:00">2018-03-17</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习/" itemprop="url" rel="index"><span itemprop="name">学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><ul>
+<li><code>yarn global add gulp</code></li>
+<li>运行：<code>gulp tast名</code></li>
+<li>项目目录结构(示例)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">+ src(项目原目录)</span><br><span class="line">  * images(图片)</span><br><span class="line">    - icon(需要生成精灵图的图片)</span><br><span class="line">      + icon1.png</span><br><span class="line">      + icon2.png</span><br><span class="line">    - pic.png</span><br><span class="line">  * js(页面js)</span><br><span class="line">    - block(公共js)</span><br><span class="line">      + common.js</span><br><span class="line">      + util.js</span><br><span class="line">    - index.js</span><br><span class="line">  * css(页面css)</span><br><span class="line">    - block(公共css)</span><br><span class="line">      + reset.scss</span><br><span class="line">      + header.scss</span><br><span class="line">    - index.scss</span><br><span class="line">  * components(公共模块)</span><br><span class="line">    - header.html</span><br><span class="line">    - footer.html</span><br><span class="line">  * index.html</span><br><span class="line">+ dist(生成目录，不需创建)</span><br><span class="line">  * images</span><br><span class="line">    - sprite.png</span><br><span class="line">    - pic.png</span><br><span class="line">  * js</span><br><span class="line">    - block</span><br><span class="line">      + common.js</span><br><span class="line">      + util.js</span><br><span class="line">    - index.js</span><br><span class="line">  * css</span><br><span class="line">    - block</span><br><span class="line">      + reset.css</span><br><span class="line">      + header.scss</span><br><span class="line">      + sprites.css</span><br><span class="line">    - index.css</span><br><span class="line">  * index.html</span><br><span class="line">+ node_modules(node模块，不需创建)</span><br><span class="line">+ gulpfile.js(gulp配置js)</span><br><span class="line">+ package.json</span><br><span class="line">+ yarn.lock</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、部分插件的安装和使用"><a href="#二、部分插件的安装和使用" class="headerlink" title="二、部分插件的安装和使用"></a>二、部分插件的安装和使用</h2><a id="more"></a>
+<h3 id="1、browser-sync：自动刷新"><a href="#1、browser-sync：自动刷新" class="headerlink" title="1、browser-sync：自动刷新"></a>1、browser-sync：自动刷新</h3><ul>
+<li>安装： <code>yarn add browser-sync</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'browserSync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    browserSync(&#123;</span><br><span class="line">        server: &#123;</span><br><span class="line">            baseDir: <span class="string">'dist'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2、处理css相关插件"><a href="#2、处理css相关插件" class="headerlink" title="2、处理css相关插件"></a>2、处理css相关插件</h3><ul>
+<li>安装： <code>yarn add gulp-sass gulp-postcss autoprefixer del-gulpsass-blank-lines</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>); <span class="comment">// 编译Sass</span></span><br><span class="line"><span class="keyword">const</span> postcss = <span class="built_in">require</span>(<span class="string">'gulp-postcss'</span>); <span class="comment">// 后处理器</span></span><br><span class="line"><span class="keyword">const</span> autoprefixer = <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>); <span class="comment">// 加前缀，与postcss配合使用</span></span><br><span class="line"><span class="keyword">const</span> dgbl = <span class="built_in">require</span>(<span class="string">"del-gulpsass-blank-lines"</span>); <span class="comment">// 删掉sass空行</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'src/css/**/*.scss'</span>)</span><br><span class="line">  .pipe(sass(&#123;<span class="attr">outputStyle</span>: <span class="string">'compact'</span>&#125;).on(<span class="string">'error'</span>, sass.logError))</span><br><span class="line">  .pipe(dgbl())</span><br><span class="line">  .pipe(postcss([autoprefixer(&#123;<span class="attr">browsers</span>: [<span class="string">'last 2 versions'</span>, <span class="string">'Android &gt; 4.4'</span>,<span class="string">'iOS &gt;= 8'</span>, <span class="string">'Firefox &gt;= 20'</span>]&#125;)]))</span><br><span class="line">  .pipe(gulp.dest(<span class="string">'dist/css'</span>))</span><br><span class="line">  .pipe(browserSync.reload(&#123;  <span class="comment">// 只有被改变的地方局部刷新</span></span><br><span class="line">    stream: <span class="literal">true</span></span><br><span class="line">  &#125;))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3、gulp-babel：es6转es5"><a href="#3、gulp-babel：es6转es5" class="headerlink" title="3、gulp-babel：es6转es5"></a>3、gulp-babel：es6转es5</h3><ul>
+<li>安装： <code>yarn add gulp-babel</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> babel = <span class="built_in">require</span>(<span class="string">'gulp-babel'</span>); <span class="comment">// bable</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'babel'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'src/js/**/*.js'</span>)</span><br><span class="line">  .pipe(babel(&#123;</span><br><span class="line">    presets: [<span class="string">'@babel/env'</span>],</span><br><span class="line">    plugins: [<span class="string">'@babel/transform-runtime'</span>]</span><br><span class="line">  &#125;))</span><br><span class="line">  <span class="comment">// .pipe(uglify())</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'dist/js'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4、处理图片"><a href="#4、处理图片" class="headerlink" title="4、处理图片"></a>4、处理图片</h3><ul>
+<li>安装： <code>yarn add gulp-imagemin gulp.spritesmith gulp-cache</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>); <span class="comment">// 优化图片</span></span><br><span class="line"><span class="keyword">const</span> spritesmith = <span class="built_in">require</span>(<span class="string">'gulp.spritesmith'</span>); <span class="comment">// 图片精灵</span></span><br><span class="line"><span class="keyword">const</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cache'</span>); <span class="comment">// 缓存代理任务。，减少图片重复压缩</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'images'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'src/images/icon/*.png'</span>)</span><br><span class="line">    <span class="comment">// Caching images that ran through imagemin</span></span><br><span class="line">    .pipe(cache(imagemin(&#123;</span><br><span class="line">      interlaced: <span class="literal">true</span>,</span><br><span class="line">    &#125;)))</span><br><span class="line">    .pipe(spritesmith(&#123;</span><br><span class="line">        imgName:<span class="string">'images/sprite.png'</span>, <span class="comment">//合并后大图的名称</span></span><br><span class="line">        cssName:<span class="string">'css/block/sprite.css'</span>,</span><br><span class="line">        padding:<span class="number">2</span><span class="comment">// 每个图片之间的间距，默认为0px</span></span><br><span class="line">        <span class="comment">// cssTemplate:(data)=&gt;&#123; // 可以自定义输出格式</span></span><br><span class="line">        <span class="comment">// // data为对象，保存合成前小图和合成打大图的信息包括小图在大图之中的信息</span></span><br><span class="line">        <span class="comment">//    let arr = [],</span></span><br><span class="line">        <span class="comment">//         width = data.spritesheet.px.width,</span></span><br><span class="line">        <span class="comment">//         height = data.spritesheet.px.height,</span></span><br><span class="line">        <span class="comment">//         url =  data.spritesheet.image</span></span><br><span class="line">        <span class="comment">//     // console.log(data)</span></span><br><span class="line">        <span class="comment">//     data.sprites.forEach(function(sprite) &#123;</span></span><br><span class="line">        <span class="comment">//         arr.push(</span></span><br><span class="line">        <span class="comment">//             '.icon-'+sprite.name+</span></span><br><span class="line">        <span class="comment">//             '&#123;'+</span></span><br><span class="line">        <span class="comment">//                 'background: url('+url+') '+</span></span><br><span class="line">        <span class="comment">//                 'no-repeat '+</span></span><br><span class="line">        <span class="comment">//                 sprite.px.offset_x+' '+sprite.px.offset_y+';'+</span></span><br><span class="line">        <span class="comment">//                 'background-size: '+ width+' '+height+';'+</span></span><br><span class="line">        <span class="comment">//                 'width: '+sprite.px.width+';'+</span></span><br><span class="line">        <span class="comment">//                 'height: '+sprite.px.height+';'+</span></span><br><span class="line">        <span class="comment">//             '&#125;\n'</span></span><br><span class="line">        <span class="comment">//         )</span></span><br><span class="line">        <span class="comment">//     &#125;)</span></span><br><span class="line">        <span class="comment">//     // return "@fs:108rem;\n"+arr.join("")</span></span><br><span class="line">        <span class="comment">//     return arr.join('')</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">    &#125;))</span><br><span class="line"></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist/'</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5、gulp-content-includer：-include-公共模块"><a href="#5、gulp-content-includer：-include-公共模块" class="headerlink" title="5、gulp-content-includer： include 公共模块"></a>5、gulp-content-includer： include 公共模块</h3><ul>
+<li>安装： <code>yarn add gulp-content-includer</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> contentIncluder = <span class="built_in">require</span>(<span class="string">'gulp-content-includer'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'concat'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'src/*.html'</span>)</span><br><span class="line">        .pipe(contentIncluder(&#123; <span class="comment">// 可以自定义</span></span><br><span class="line">            includerReg:<span class="regexp">/&lt;!\-\-\#include\s+virtual="([^"]+)"\-\-&gt;/g</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'dist/'</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以使用 &lt;!--#include virtual="./components/header.html"--&gt; 方式来引入公共模块</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="6、清理生成文件"><a href="#6、清理生成文件" class="headerlink" title="6、清理生成文件"></a>6、清理生成文件</h3><ul>
+<li>安装： <code>yarn add del</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>); <span class="comment">// 清理生成文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除 除了images/文件夹，dist下的任意文件</span></span><br><span class="line">gulp.task(<span class="string">'clean:dist'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> del.sync([<span class="string">'dist/**/*'</span>, <span class="string">'!dist/images'</span>, <span class="string">'!dist/images/**/*'</span>]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在某些时候我们还是需要清除图片，所以clean任务我们还需要保留</span></span><br><span class="line">gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> del.sync(<span class="string">'dist'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cb</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cache.clearAll(cb);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="7、组合任务"><a href="#7、组合任务" class="headerlink" title="7、组合任务"></a>7、组合任务</h3><ul>
+<li>安装： <code>yarn add run-sequence</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> runSequence = <span class="built_in">require</span>(<span class="string">'run-sequence'</span>); <span class="comment">// 按照指定顺序运行任务</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听文件，刷新浏览器</span></span><br><span class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.watch(<span class="string">'src/scss/**/*.scss'</span>, [<span class="string">'sass'</span>]);</span><br><span class="line">  gulp.watch(<span class="string">'src/**/*.html'</span>, browserSync.reload);</span><br><span class="line">  gulp.watch(<span class="string">'src/js/**/*.js'</span>, browserSync.reload);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按顺序执行任务，放 [] 内的任务会同时执行</span></span><br><span class="line">gulp.task(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  runSequence(</span><br><span class="line">    <span class="string">'clean:dist'</span>,</span><br><span class="line">    [<span class="string">'sass'</span>,<span class="string">'babel'</span>,<span class="string">'concat'</span>,<span class="string">'images'</span>],</span><br><span class="line">    callback</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  runSequence([<span class="string">'sass'</span>, <span class="string">'babel'</span>, <span class="string">'browserSync'</span>, <span class="string">'concat'</span>, <span class="string">'images'</span>], <span class="string">'watch'</span>,</span><br><span class="line">    callback</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://www.cnblogs.com/Tom-yi/p/8036730.html" target="_blank" rel="noopener">参考连接</a><br><a href="https://github.com/frontYang/study/tree/master/gulp" target="_blank" rel="noopener">仓库地址</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gulp/" rel="tag"># gulp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/11/iframe/" rel="next" title="iframe跨域问题">
+                <i class="fa fa-chevron-left"></i> iframe跨域问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="frongYang" />
+            
+              <p class="site-author-name" itemprop="name">frongYang</p>
+              <p class="site-description motion-element" itemprop="description">入坑</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/frontYang" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装"><span class="nav-number">1.</span> <span class="nav-text">一、安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、部分插件的安装和使用"><span class="nav-number">2.</span> <span class="nav-text">二、部分插件的安装和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、browser-sync：自动刷新"><span class="nav-number">2.1.</span> <span class="nav-text">1、browser-sync：自动刷新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、处理css相关插件"><span class="nav-number">2.2.</span> <span class="nav-text">2、处理css相关插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、gulp-babel：es6转es5"><span class="nav-number">2.3.</span> <span class="nav-text">3、gulp-babel：es6转es5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、处理图片"><span class="nav-number">2.4.</span> <span class="nav-text">4、处理图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、gulp-content-includer：-include-公共模块"><span class="nav-number">2.5.</span> <span class="nav-text">5、gulp-content-includer： include 公共模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、清理生成文件"><span class="nav-number">2.6.</span> <span class="nav-text">6、清理生成文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、组合任务"><span class="nav-number">2.7.</span> <span class="nav-text">7、组合任务</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">frongYang</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.5</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.5"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.5"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.5"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
