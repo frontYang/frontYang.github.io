@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.5" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.5">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.5">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.5">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.5" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.0.5',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="canvas,html5," />
+
+
+<meta name="description" content="一、canvas 与 SVG的区别 canvas和svg之间一个重要的区别：使用canvas来绘制图形是通过调用它提供的方法，而使用svg绘制图形是通过构建一棵XML元素树来实现  二、canvas基础 note: (摘自《javascript权威指南》)  1、定义上下文对象 大部分画布绘制的API都不是在&amp;lt;canvas&amp;gt;元素自身上定义的，而是定义在一个”绘制上下文”对象上，获取该对">
+<meta name="keywords" content="canvas,html5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas学习与实践">
+<meta property="og:url" content="https://frontyang.github.io/2018/03/31/canvas/index.html">
+<meta property="og:site_name" content="YNode">
+<meta property="og:description" content="一、canvas 与 SVG的区别 canvas和svg之间一个重要的区别：使用canvas来绘制图形是通过调用它提供的方法，而使用svg绘制图形是通过构建一棵XML元素树来实现  二、canvas基础 note: (摘自《javascript权威指南》)  1、定义上下文对象 大部分画布绘制的API都不是在&amp;lt;canvas&amp;gt;元素自身上定义的，而是定义在一个”绘制上下文”对象上，获取该对">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://frontyang.github.io/images/canvas/coordinate.png">
+<meta property="og:image" content="https://frontyang.github.io/images/canvas/arc1.png">
+<meta property="og:updated_time" content="2018-03-31T15:13:43.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="canvas学习与实践">
+<meta name="twitter:description" content="一、canvas 与 SVG的区别 canvas和svg之间一个重要的区别：使用canvas来绘制图形是通过调用它提供的方法，而使用svg绘制图形是通过构建一棵XML元素树来实现  二、canvas基础 note: (摘自《javascript权威指南》)  1、定义上下文对象 大部分画布绘制的API都不是在&amp;lt;canvas&amp;gt;元素自身上定义的，而是定义在一个”绘制上下文”对象上，获取该对">
+<meta name="twitter:image" content="https://frontyang.github.io/images/canvas/coordinate.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://frontyang.github.io/2018/03/31/canvas/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>canvas学习与实践 | YNode</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YNode</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习的技能/遇到的问题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">14</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">1</span>
+              </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">14</span>
+              </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://frontyang.github.io/2018/03/31/canvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="frongYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YNode">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">canvas学习与实践</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T20:40:33+08:00">2018-03-31</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习/" itemprop="url" rel="index"><span itemprop="name">学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、canvas-与-SVG的区别"><a href="#一、canvas-与-SVG的区别" class="headerlink" title="一、canvas 与 SVG的区别"></a>一、canvas 与 SVG的区别</h2><ul>
+<li>canvas和svg之间一个重要的区别：使用canvas来绘制图形是通过调用它提供的方法，而使用svg绘制图形是通过构建一棵XML元素树来实现</li>
+</ul>
+<h2 id="二、canvas基础"><a href="#二、canvas基础" class="headerlink" title="二、canvas基础"></a>二、canvas基础</h2><blockquote>
+<p>note: (摘自《javascript权威指南》)</p>
+</blockquote>
+<h3 id="1、定义上下文对象"><a href="#1、定义上下文对象" class="headerlink" title="1、定义上下文对象"></a>1、定义上下文对象</h3><ul>
+<li>大部分画布绘制的API都不是在<code>&lt;canvas&gt;</code>元素自身上定义的，而是定义在一个”绘制上下文”对象上，获取该对象可以通过调用画布的getContext()方法。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="keyword">let</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2、-绘制线段和填充多边形"><a href="#2、-绘制线段和填充多边形" class="headerlink" title="2、 绘制线段和填充多边形"></a>2、 绘制线段和填充多边形</h3><ul>
+<li>图形属性<ul>
+<li>fillStyle：填充颜色/渐变/图案等样式</li>
+<li>font：绘制文本css样式</li>
+<li>globalAlpha：绘制像素时要添加的透明度 (?)</li>
+<li>globalCompositeOperation：如何合并新的像素点和下面的像素点 (?)</li>
+<li>lineCap：如何渲染线段末端</li>
+<li>lineJoin：如何渲染顶点</li>
+<li>lineWidth：外框线的宽度</li>
+<li>miterLimit：紧急斜接顶点的最大长度 (?)</li>
+<li>textAlign：文本水平对齐方式</li>
+<li>textBaseline：文本垂直对齐方式</li>
+<li>shadowBlur：阴影的清晰或模糊程度</li>
+<li>shadowColor：下拉阴影的颜色</li>
+<li>shadowOffsetX：阴影的水平偏移量</li>
+<li>shadowOffsetY：阴影的垂直偏移量</li>
+<li>strokeStyle：勾勒线段时的颜色/渐变/图案等样式</li>
+</ul>
+</li>
+<li>案例（最后一个没有效果？）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个以(x, y)为中心， 半径为r的规则n边形</span></span><br><span class="line"><span class="comment">// 每个顶点都是均匀分布在圆周上</span></span><br><span class="line"><span class="comment">// 将第一个顶点放置在最上面，或者指定一定角度</span></span><br><span class="line"><span class="comment">// 除非最后一个参数是true，否则顺时针旋转</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">polygon</span>(<span class="params">c, n, x, y, r, angle, counterclockwise</span>)</span>&#123;</span><br><span class="line">    angle = angle || <span class="number">0</span>;</span><br><span class="line">    counterclockwise = counterclockwise || <span class="literal">false</span>;</span><br><span class="line">    ctx.moveTo(x + r * <span class="built_in">Math</span>.sin(angle), <span class="comment">// 从第一个顶点开始一条新的路径</span></span><br><span class="line">               y - r * <span class="built_in">Math</span>.cos(angle)); <span class="comment">// 使用三角形计算位置</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> delta = <span class="number">2</span> * <span class="built_in">Math</span>.PI / n; <span class="comment">// 两个顶点之间的夹角</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; n; i ++)&#123; <span class="comment">// 循环剩余的每个顶点</span></span><br><span class="line">        angle += counterclockwise ? -delta : delta; <span class="comment">// 调整角度</span></span><br><span class="line">        ctx.lineTo(x + r * <span class="built_in">Math</span>.sin(angle), <span class="comment">// 以下个顶点为端点添加线段</span></span><br><span class="line">                   y - r * <span class="built_in">Math</span>.cos(angle));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ctx.closePath(); <span class="comment">// 将最后一个顶点和起点连接起来</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ctx.beginPath();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line">polygon(ctx, <span class="number">3</span>, x, <span class="number">70</span>, <span class="number">50</span>); <span class="comment">// 三角形</span></span><br><span class="line">polygon(ctx, <span class="number">4</span>, x + x * <span class="number">2</span>, <span class="number">60</span>, <span class="number">50</span>, <span class="built_in">Math</span>.PI / <span class="number">4</span>); <span class="comment">// 正方形</span></span><br><span class="line">polygon(ctx, <span class="number">5</span>, x + x * <span class="number">3</span>, <span class="number">55</span>, <span class="number">50</span>); <span class="comment">// 五边形</span></span><br><span class="line">polygon(ctx, <span class="number">6</span>, x + x * <span class="number">4</span>, <span class="number">53</span>, <span class="number">50</span>, <span class="built_in">Math</span>.PI / <span class="number">6</span>); <span class="comment">// 六边形</span></span><br><span class="line">polygon(ctx, <span class="number">4</span>, x + x * <span class="number">5</span>, <span class="number">53</span>, <span class="number">20</span>, <span class="built_in">Math</span>.PI / <span class="number">4</span>, <span class="literal">true</span>); <span class="comment">// 六边形中的小正方形</span></span><br><span class="line"></span><br><span class="line">ctx.fillStyle() = <span class="string">'#ccc'</span>; <span class="comment">// 内部填充颜色</span></span><br><span class="line">ctx.stockStyle = <span class="string">'#oo8'</span>; <span class="comment">// 边框颜色</span></span><br><span class="line">ctx.lineWidth = <span class="number">5</span>; <span class="comment">// 边框跨度</span></span><br><span class="line"></span><br><span class="line">ctx.fill(); <span class="comment">// 填充</span></span><br><span class="line">ctx.stroke(); <span class="comment">// 勾勒外边框</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3、画布的尺寸与坐标"><a href="#3、画布的尺寸与坐标" class="headerlink" title="3、画布的尺寸与坐标"></a>3、画布的尺寸与坐标</h3><p><img src="/images/canvas/coordinate.png" alt="画布栅格（canvas grid）以及坐标空间"></p>
+<p style="text-align: center;">(注：图片来自<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes" target="_blank" rel="noopener">MDN</a>)</p>
+
+<h3 id="4、坐标系变换（占坑）"><a href="#4、坐标系变换（占坑）" class="headerlink" title="4、坐标系变换（占坑）"></a>4、坐标系变换（占坑）</h3><h3 id="5、绘制和填充曲线"><a href="#5、绘制和填充曲线" class="headerlink" title="5、绘制和填充曲线"></a>5、绘制和填充曲线</h3><ul>
+<li>arc(ox, oy, radius, startRadian, endRadian, [true | false])： 在当前子路径中添加一条弧<ul>
+<li>参数：<ul>
+<li>ox: 圆心x坐标</li>
+<li>oy: 圆心y坐标</li>
+<li>radius: 半径</li>
+<li>startRadian: 起始弧</li>
+<li>endRadian: 结束弧</li>
+<li>true: 逆时针 | false: 顺时针</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>arcTo(x1, y1, x2, y2, radius):绘制一条直线和一段圆弧(?)<ul>
+<li>x1: 起点x坐标</li>
+<li>y1: 起点y坐标</li>
+<li>x2: 终点x坐标</li>
+<li>y2: 终点y坐标</li>
+<li>radius:半径</li>
+</ul>
+</li>
+<li>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)：实现在当前子路径中添加一个新的点，并利用三次贝塞尔曲线将它和当前点相连(?)<ul>
+<li>cp1x: 第一个控制点x坐标</li>
+<li>cp1y: 第一个控制点y坐标</li>
+<li>cp2x: 第二个控制点x坐标</li>
+<li>cp2y: 第二个控制点y坐标</li>
+<li>x: 结束点x坐标</li>
+<li>y: 结束点y坐标</li>
+</ul>
+</li>
+<li><p>quadraticCurveTo(cpx, cpy, x, y)：与bezierCurveTo()类似，不同的是它使用的是二次贝塞尔曲线而不是三次贝塞尔曲线并且只有一个控制点(?)</p>
+<ul>
+<li>cpx: 控制点x坐标</li>
+<li>cpy: 控制点y坐标</li>
+<li>x: 结束点x坐标</li>
+<li>y: 结束点y坐标</li>
+</ul>
+<ul>
+<li>示例：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将角度转化成弧度制</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rads</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.PI * x / <span class="number">180</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ctx.beginPath();</span><br><span class="line">ctx.arc(<span class="number">75</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">0</span>, rads(<span class="number">360</span>), <span class="literal">false</span>); <span class="comment">// 圆心位于(75, 100), 半径为50, 从0°到360°顺时针旋转</span></span><br><span class="line">ctx.closePath();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/canvas/arc1.png" alt="绘制一个圆形"></p>
+<p style="text-align: center;">(效果图)</p>
+
+<h3 id="6、矩形"><a href="#6、矩形" class="headerlink" title="6、矩形"></a>6、矩形</h3><ul>
+<li>fillRect(x,y,width,height): 使用当前点的fillStyle来填充指定的矩形<ul>
+<li>参数:<ul>
+<li>x:矩形左上角的x坐标</li>
+<li>y: 矩形左上角的y坐标</li>
+<li>width: 矩形的宽度</li>
+<li>height: 矩形的高度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>strokeRect(x,y,width,height): 使用当前的strokeStyle和其他线段的属性来勾勒指定矩形的外边框，参数与fillRect()相同</li>
+<li>clearRect(x,y,width,height): 清除矩形，参数与fillRect()相同</li>
+<li>rect(x,y,width,height): 绘制矩形，会对当前路径产生影响，会在指定的矩形添加到当前路径的子路径中，参数与fillRect()相同</li>
+</ul>
+<p>未完。。。。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/canvas/" rel="tag"># canvas</a>
+          
+            <a href="/tags/html5/" rel="tag"># html5</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/17/gulp/" rel="next" title="gulp学习笔记">
+                <i class="fa fa-chevron-left"></i> gulp学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="frongYang" />
+            
+              <p class="site-author-name" itemprop="name">frongYang</p>
+              <p class="site-description motion-element" itemprop="description">入坑</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/frontYang" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、canvas-与-SVG的区别"><span class="nav-number">1.</span> <span class="nav-text">一、canvas 与 SVG的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、canvas基础"><span class="nav-number">2.</span> <span class="nav-text">二、canvas基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、定义上下文对象"><span class="nav-number">2.1.</span> <span class="nav-text">1、定义上下文对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-绘制线段和填充多边形"><span class="nav-number">2.2.</span> <span class="nav-text">2、 绘制线段和填充多边形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、画布的尺寸与坐标"><span class="nav-number">2.3.</span> <span class="nav-text">3、画布的尺寸与坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、坐标系变换（占坑）"><span class="nav-number">2.4.</span> <span class="nav-text">4、坐标系变换（占坑）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、绘制和填充曲线"><span class="nav-number">2.5.</span> <span class="nav-text">5、绘制和填充曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、矩形"><span class="nav-number">2.6.</span> <span class="nav-text">6、矩形</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">frongYang</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.5</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.5"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.5"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.5"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
