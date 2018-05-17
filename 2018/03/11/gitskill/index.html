@@ -107,18 +107,18 @@
   <meta name="keywords" content="git," />
 
 
-<meta name="description" content="一、创建版本库 初始化一个Git仓库，使用 git init 命令 添加文件到仓库: 第一步：使用命令 git add [file]，可以反复多次使用，添加多个文件 第二步：使用命令 git commit">
+<meta name="description" content="创建版本库 初始化一个Git仓库，使用 git init 命令 添加文件到仓库: 第一步：使用命令 git add [file]，可以反复多次使用，添加多个文件 第二步：使用命令 git commit">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用命令">
 <meta property="og:url" content="https://frontyang.github.io/2018/03/11/gitskill/index.html">
 <meta property="og:site_name" content="YNode">
-<meta property="og:description" content="一、创建版本库 初始化一个Git仓库，使用 git init 命令 添加文件到仓库: 第一步：使用命令 git add [file]，可以反复多次使用，添加多个文件 第二步：使用命令 git commit">
+<meta property="og:description" content="创建版本库 初始化一个Git仓库，使用 git init 命令 添加文件到仓库: 第一步：使用命令 git add [file]，可以反复多次使用，添加多个文件 第二步：使用命令 git commit">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-11T08:23:57.651Z">
+<meta property="og:updated_time" content="2018-05-17T14:19:33.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令">
-<meta name="twitter:description" content="一、创建版本库 初始化一个Git仓库，使用 git init 命令 添加文件到仓库: 第一步：使用命令 git add [file]，可以反复多次使用，添加多个文件 第二步：使用命令 git commit">
+<meta name="twitter:description" content="创建版本库 初始化一个Git仓库，使用 git init 命令 添加文件到仓库: 第一步：使用命令 git add [file]，可以反复多次使用，添加多个文件 第二步：使用命令 git commit">
 
 
 
@@ -407,7 +407,7 @@
       
 
       
-        <h2 id="一、创建版本库"><a href="#一、创建版本库" class="headerlink" title="一、创建版本库"></a>一、创建版本库</h2><ul>
+        <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><ul>
 <li>初始化一个Git仓库，使用 <code>git init</code> 命令</li>
 <li>添加文件到仓库:<ul>
 <li>第一步：使用命令 <code>git add [file]</code>，可以反复多次使用，添加多个文件</li>
@@ -417,29 +417,43 @@
 </ul>
 <hr>
 <a id="more"></a>
-<h2 id="二、查看仓库目前状态"><a href="#二、查看仓库目前状态" class="headerlink" title="二、查看仓库目前状态"></a>二、查看仓库目前状态</h2><ul>
+<h2 id="查看仓库目前状态"><a href="#查看仓库目前状态" class="headerlink" title="查看仓库目前状态"></a>查看仓库目前状态</h2><ul>
 <li><code>git status</code>:掌握工作区的状态,查看文件是否被修改过(但还没有准备提交的修改)</li>
-<li><code>git diff</code>:可以查看修改内容</li>
+<li><code>git diff</code>:可以查看修改内容<ul>
+<li><code>git diff</code> 比对当前内容和暂存区内容。</li>
+<li><code>git diff HEAD</code> 比对当前内容和最近一次提交。</li>
+<li><code>git diff HEAD^</code> 比对当前内容和倒数第二次提交。</li>
+<li><code>git diff HEAD^ HEAD</code> 比对最近两次提交。</li>
+</ul>
+</li>
 </ul>
 <hr>
-<h2 id="三、版本回退"><a href="#三、版本回退" class="headerlink" title="三、版本回退"></a>三、版本回退</h2><ul>
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ul>
 <li>HEAD指向的版本就是当前版本，git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code></li>
-<li><code>git log</code>查看提交历史，以便会退到哪个版本</li>
-<li><code>git reflog</code>查看命令历史，以便确定要回到未来哪个版本</li>
+<li><p><code>git log</code>查看提交历史，以便会退到哪个版本</p>
+<ul>
+<li><code>git log [--oneline] [--all]</code> 查看提交历史。</li>
+<li><code>git log --oneline</code> 打印为单行log。</li>
+<li><code>git log --all</code>  打印所有记录（忽略HEAD的位置）。</li>
+<li><code>git log --graph</code> 打印示意图（忽略HEAD的位置）。</li>
+</ul>
+</li>
+<li><p><code>git reflog</code>查看命令历史，以便确定要回到未来哪个版本</p>
+</li>
 </ul>
 <hr>
-<h2 id="四、撤销修改"><a href="#四、撤销修改" class="headerlink" title="四、撤销修改"></a>四、撤销修改</h2><ul>
+<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><ul>
 <li><code>git checkout -- file</code>:直接丢弃工作区的修改</li>
 <li>丢弃暂存区的修改:用<code>git reset HEAD file</code>回到上一步</li>
 <li>已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库</li>
 </ul>
 <hr>
-<h2 id="五、删除文件"><a href="#五、删除文件" class="headerlink" title="五、删除文件"></a>五、删除文件</h2><ul>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><ul>
 <li>第一步：<code>git rm [file]</code></li>
 <li>第二步：<code>git commit</code></li>
 </ul>
 <hr>
-<h2 id="六、添加远程库"><a href="#六、添加远程库" class="headerlink" title="六、添加远程库"></a>六、添加远程库</h2><ul>
+<h2 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h2><ul>
 <li>要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code></li>
 <li>关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容</li>
 <li>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改</li>
@@ -450,11 +464,12 @@
 </li>
 </ul>
 <hr>
-<h2 id="七、从远程库克隆"><a href="#七、从远程库克隆" class="headerlink" title="七、从远程库克隆"></a>七、从远程库克隆</h2><ul>
+<h2 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h2><ul>
 <li><code>git clone https://github.com/xx/xx.git</code></li>
+<li>拉取远程仓库 <code>git pull</code></li>
 </ul>
 <hr>
-<h2 id="八、分支管理"><a href="#八、分支管理" class="headerlink" title="八、分支管理"></a>八、分支管理</h2><ul>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><ul>
 <li>查看分支:<code>git branch</code></li>
 <li>创建分支：<code>git branch [name]</code></li>
 <li>切换分支：<code>git checkout [name]</code></li>
@@ -463,7 +478,7 @@
 <li>删除分支：<code>git branch -d [name]</code></li>
 </ul>
 <hr>
-<h2 id="九、修改文件后提交-并提交到github-步骤："><a href="#九、修改文件后提交-并提交到github-步骤：" class="headerlink" title="九、修改文件后提交 并提交到github 步骤："></a>九、修改文件后提交 并提交到github 步骤：</h2><ul>
+<h2 id="修改文件后提交-并提交到github-步骤："><a href="#修改文件后提交-并提交到github-步骤：" class="headerlink" title="修改文件后提交 并提交到github 步骤："></a>修改文件后提交 并提交到github 步骤：</h2><ul>
 <li>创建并切换分支: <code>git checkout -b [name]</code></li>
 <li>添加修改过的文件: <code>git add [file]</code></li>
 <li>提交文件: <code>git commit -m &quot;描述&quot;</code></li>
@@ -718,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、创建版本库"><span class="nav-number">1.</span> <span class="nav-text">一、创建版本库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、查看仓库目前状态"><span class="nav-number">2.</span> <span class="nav-text">二、查看仓库目前状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、版本回退"><span class="nav-number">3.</span> <span class="nav-text">三、版本回退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、撤销修改"><span class="nav-number">4.</span> <span class="nav-text">四、撤销修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、删除文件"><span class="nav-number">5.</span> <span class="nav-text">五、删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、添加远程库"><span class="nav-number">6.</span> <span class="nav-text">六、添加远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、从远程库克隆"><span class="nav-number">7.</span> <span class="nav-text">七、从远程库克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、分支管理"><span class="nav-number">8.</span> <span class="nav-text">八、分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、修改文件后提交-并提交到github-步骤："><span class="nav-number">9.</span> <span class="nav-text">九、修改文件后提交 并提交到github 步骤：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建版本库"><span class="nav-number">1.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看仓库目前状态"><span class="nav-number">2.</span> <span class="nav-text">查看仓库目前状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本回退"><span class="nav-number">3.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销修改"><span class="nav-number">4.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">5.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程库"><span class="nav-number">6.</span> <span class="nav-text">添加远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">7.</span> <span class="nav-text">从远程库克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">8.</span> <span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件后提交-并提交到github-步骤："><span class="nav-number">9.</span> <span class="nav-text">修改文件后提交 并提交到github 步骤：</span></a></li></ol></div>
             
 
           </div>
