@@ -401,7 +401,59 @@
 
       
         
-          <h2 id="2018-05-05某公司"><a href="#2018-05-05某公司" class="headerlink" title="2018/05/05某公司"></a>2018/05/05某公司</h2><h3 id="手写一个ajax"><a href="#手写一个ajax" class="headerlink" title="手写一个ajax"></a>手写一个ajax</h3>
+          <h2 id="2018-05-23某公司"><a href="#2018-05-23某公司" class="headerlink" title="2018/05/23某公司"></a>2018/05/23某公司</h2><h3 id="请写出让下方DIV水平居中的样式"><a href="#请写出让下方DIV水平居中的样式" class="headerlink" title="请写出让下方DIV水平居中的样式"></a>请写出让下方DIV水平居中的样式</h3><p><code>&lt;div style=&quot;width: 500px; height: 100px; position: absolute;&quot;&gt;&lt;/div&gt;</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*水平居中*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>:-<span class="number">250px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*水平垂直居中 一*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>:-<span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>:<span class="built_in">translate</span>(-50%, -50%, 0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="lt-span-gt-和-lt-p-gt-在默认样式上有什么区别"><a href="#lt-span-gt-和-lt-p-gt-在默认样式上有什么区别" class="headerlink" title="&lt;span&gt;和&lt;p&gt;在默认样式上有什么区别"></a><code>&lt;span&gt;</code>和<code>&lt;p&gt;</code>在默认样式上有什么区别</h3><ul>
+<li>前者：行内元素，一般放文字等</li>
+<li>后者：块级元素，指一个段落</li>
+</ul>
+<h3 id="解释下列的css选择器"><a href="#解释下列的css选择器" class="headerlink" title="解释下列的css选择器"></a>解释下列的css选择器</h3><ul>
+<li>li .c , li.d</li>
+<li>li .c&gt;d</li>
+<li>li .c + .d</li>
+</ul>
+<h3 id="请写出下方HTML代码默认状态下输出后的表现方式"><a href="#请写出下方HTML代码默认状态下输出后的表现方式" class="headerlink" title="请写出下方HTML代码默认状态下输出后的表现方式"></a>请写出下方HTML代码默认状态下输出后的表现方式</h3><ul>
+<li><code>X&lt;SUP&gt;2&lt;SUP&gt;</code><ul>
+<li>X<sup>2<sup></sup></sup></li>
+</ul>
+</li>
+<li><code>&lt;p&gt;test &lt;mark&gt;text&lt;/mark&gt;&lt;/p&gt;</code><ul>
+<li><p>test <mark>text</mark></p></li>
+</ul>
+</li>
+<li><code>&lt;details&gt;test &lt;summary&gt;text&lt;/summary&gt;&lt;/details&gt;</code><ul>
+<li><details>test <summary>text</summary></details>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="请写出一个input并满足以下条件：HTML5日期选择器，点击选择后结果只显示年和月，且只能选择今天的日期"><a href="#请写出一个input并满足以下条件：HTML5日期选择器，点击选择后结果只显示年和月，且只能选择今天的日期" class="headerlink" title="请写出一个input并满足以下条件：HTML5日期选择器，点击选择后结果只显示年和月，且只能选择今天的日期"></a>请写出一个input并满足以下条件：HTML5日期选择器，点击选择后结果只显示年和月，且只能选择今天的日期</h3><p><code>&lt;input type=&quot;month&quot; value=&quot;2015-09&quot;/&gt;</code></p>
+<h3 id="function-和-function-的区别"><a href="#function-和-function-的区别" class="headerlink" title="$(function(){}())和(function(){}())的区别"></a>$(function(){}())和(function(){}())的区别</h3><ul>
+<li>前者：<ul>
+<li>Jquery语法的匿名函数，用于存放操作DOM对象的代码，执行其中代码时DOM对象已存在；（通过这样就可以在页面加载完成时通过ajax再异步加载一些数据）</li>
+</ul>
+</li>
+<li>后者：<ul>
+<li>用于存放开发插件的代码，执行其中代码时DOM不一定存在;（用于在内容加载时或加载前加载）</li>
+</ul>
+</li>
+</ul>
+<h3 id="mouseenter-和-mouseover的区别"><a href="#mouseenter-和-mouseover的区别" class="headerlink" title="mouseenter 和 mouseover的区别"></a>mouseenter 和 mouseover的区别</h3><ul>
+<li>前者：只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。对应mouseleave</li>
+<li>后者：不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。对应mouseout</li>
+</ul>
+<h3 id="setTimeout和setInterval的区别"><a href="#setTimeout和setInterval的区别" class="headerlink" title="setTimeout和setInterval的区别"></a>setTimeout和setInterval的区别</h3><ul>
+<li>前者：在执行时,是在载入后延迟指定时间后,去执行一次表达式,次数是一次，</li>
+<li>后者：从载入后,每隔指定的时间就执行一次表达式</li>
+</ul>
+<h3 id="写出以下代码输出的结果"><a href="#写出以下代码输出的结果" class="headerlink" title="写出以下代码输出的结果"></a>写出以下代码输出的结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function act(i)&#123;</span><br><span class="line">    var s;</span><br><span class="line">    s = i++;</span><br><span class="line">    i++;</span><br><span class="line">    return cal(s+i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function cal(i)&#123;</span><br><span class="line">    var s;</span><br><span class="line">    s = i--;</span><br><span class="line">    s++;</span><br><span class="line">    return s;</span><br><span class="line">&#125;</span><br><span class="line">alert(act(1))</span><br><span class="line"></span><br><span class="line">// 答案：5</span><br></pre></td></tr></table></figure>
+<h3 id="口述Jq中Deferred对象的应用实例（描述应该什么时候使用，会有什么效果）"><a href="#口述Jq中Deferred对象的应用实例（描述应该什么时候使用，会有什么效果）" class="headerlink" title="口述Jq中Deferred对象的应用实例（描述应该什么时候使用，会有什么效果）"></a>口述Jq中Deferred对象的应用实例（描述应该什么时候使用，会有什么效果）</h3><ul>
+<li>详解：<a href="http://www.ruanyifeng.com/blog/2011/08/a_detailed_explanation_of_jquery_deferred_object.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/08/a_detailed_explanation_of_jquery_deferred_object.html</a></li>
+<li>deferred对象就是jQuery的回调函数解决方案</li>
+<li>deferred对象有三种执行状态—-未完成，已完成和已失败，如果执行状态是”已完成”（resolved）,deferred对象立刻调用done()方法指定的回调函数；如果执行状态是”已失败”，调用fail()方法指定的回调函数；如果执行状态是”未完成”，则继续等待，或者调用progress()方法指定的回调函数</li>
+</ul>
+<hr>
+<h2 id="2018-05-05某公司"><a href="#2018-05-05某公司" class="headerlink" title="2018/05/05某公司"></a>2018/05/05某公司</h2><h3 id="手写一个ajax"><a href="#手写一个ajax" class="headerlink" title="手写一个ajax"></a>手写一个ajax</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/05/interview/#more" rel="contents">
