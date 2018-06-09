@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="YNode">
 <meta property="og:description" content="一、WHAT：闭包是什么闭包就是指可以访问另一个函数作用域变量的函数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-05T06:06:45.643Z">
+<meta property="og:updated_time" content="2018-06-05T06:09:11.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包">
 <meta name="twitter:description" content="一、WHAT：闭包是什么闭包就是指可以访问另一个函数作用域变量的函数">
@@ -239,7 +239,7 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">18</span>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">19</span>
               </a>
         </li>
       
@@ -365,7 +365,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-05T14:06:45+08:00">2018-06-05</time>
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-05T14:09:11+08:00">2018-06-05</time>
             
           </span>
 
@@ -441,7 +441,7 @@
 <li>可以使变量长期保存在内存中，生命周期较长</li>
 </ul>
 <h2 id="三、HOW：怎么使用闭包"><a href="#三、HOW：怎么使用闭包" class="headerlink" title="三、HOW：怎么使用闭包"></a>三、HOW：怎么使用闭包</h2><p>在一个函数内部声明一个函数，这个内部函数对外层函数的变量执行一些操作，然后返回这个内部函数。把外层函数保存在一个全局变量中。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> fn2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = fn1();</span><br><span class="line">f(); <span class="comment">// 1</span></span><br><span class="line">f(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="四、注意事项"><a href="#四、注意事项" class="headerlink" title="四、注意事项"></a>四、注意事项</h2><p>闭包不能滥用，因为闭包会使函数中的变量都被保存在内存中，内存消耗大，会影响网页的性能，在ie中可能导致内存泄露，闭包使用完了后，要立即释放资源，将引用变量指向null</p>
+<h2 id="四、注意事项"><a href="#四、注意事项" class="headerlink" title="四、注意事项"></a>四、注意事项</h2><p>闭包不能滥用，因为闭包会使函数中的变量都被保存在内存中，内存消耗大，会影响网页的性能，在ie中可能导致<a href="/2018/05/31/memoryLeaks/">内存泄露</a>，闭包使用完了后，要立即释放资源，将引用变量指向null</p>
 
       
     </div>
@@ -499,6 +499,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/31/memoryLeaks/" rel="prev" title="内存泄露">
+                内存泄露 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -585,7 +589,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

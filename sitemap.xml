@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://frontyang.github.io/2018/06/07/vuejs/</loc>
+    
+    <lastmod>2018-06-09T14:50:57.148Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://frontyang.github.io/2018/05/31/memoryLeaks/</loc>
+    
+    <lastmod>2018-06-05T06:09:13.351Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://frontyang.github.io/2018/05/31/closure/</loc>
     
-    <lastmod>2018-06-05T06:06:45.643Z</lastmod>
+    <lastmod>2018-06-05T06:09:11.562Z</lastmod>
     
   </url>
   
@@ -75,13 +89,6 @@
     <loc>https://frontyang.github.io/2017/04/16/base-html/</loc>
     
     <lastmod>2018-03-11T08:25:11.381Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://frontyang.github.io/2017/04/04/vuejs/</loc>
-    
-    <lastmod>2018-03-11T08:24:32.896Z</lastmod>
     
   </url>
   
