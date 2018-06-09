@@ -12,17 +12,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[内存泄露]]></title>
-    <url>%2F2018%2F05%2F31%2FmemoryLeaks%2F</url>
-    <content type="text"><![CDATA[一、WHAT：什么是内存泄露简单来说就是不再用到的内存，没有及时释放 二、WHY：为什么会导致内存泄露 生命周期 当创建一个对象时，Javascript会自动为该对象分配适当的内存。垃圾回收器会检查该对象是否是有效对象 三、HOW：怎么解决常见的内存泄露 意外的全局变量 被遗漏的定时器和回调函数 DOM之外的引用 闭包 四、Learning from http://www.cnblogs.com/onepixel/p/8832776.html http://www.ruanyifeng.com/blog/2017/04/memory-leak.html https://www.ibm.com/developerworks/cn/web/wa-jsmemory/]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[闭包]]></title>
     <url>%2F2018%2F05%2F31%2Fclosure%2F</url>
     <content type="text"><![CDATA[一、WHAT：闭包是什么闭包就是指可以访问另一个函数作用域变量的函数 二、WHY：为什么要使用闭包在js中，存在全局变量和局部变量，函数内部是可以访问全局变量的，但函数外部不能读取函数内部的变量。在有些情况下，例如想反复使用，又想避免全局污染，就可以使用到闭包。 闭包有两个用途： 使用闭包可以访问函数中的变量 可以使变量长期保存在内存中，生命周期较长 三、HOW：怎么使用闭包在一个函数内部声明一个函数，这个内部函数对外层函数的变量执行一些操作，然后返回这个内部函数。把外层函数保存在一个全局变量中。123456789101112function fn1()&#123; var a = 1; function fn2()&#123; return a++; &#125; return fn2;&#125;var f = fn1();f(); // 1f(); // 2 四、注意事项闭包不能滥用，因为闭包会使函数中的变量都被保存在内存中，内存消耗大，会影响网页的性能，在ie中可能导致内存泄露，闭包使用完了后，要立即释放资源，将引用变量指向null]]></content>

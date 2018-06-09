@@ -39,28 +39,6 @@
   </entry>
   
   <entry>
-    <title>内存泄露</title>
-    <link href="https://frontyang.github.io/2018/05/31/memoryLeaks/"/>
-    <id>https://frontyang.github.io/2018/05/31/memoryLeaks/</id>
-    <published>2018-05-31T02:50:26.000Z</published>
-    <updated>2018-06-05T06:09:13.351Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、WHAT：什么是内存泄露"><a href="#一、WHAT：什么是内存泄露" class="headerlink" title="一、WHAT：什么是内存泄露"></a>一、WHAT：什么是内存泄露</h2><p>简单来说就是不再用到的内存，没有及时释放<br><a id="more"></a></p><h2 id="二、WHY：为什么会导致内存泄露"><a href="#二、WHY：为什么会导致内存泄露" class="headerlink" title="二、WHY：为什么会导致内存泄露"></a>二、WHY：为什么会导致内存泄露</h2><ul><li>生命周期<ul><li>当创建一个对象时，Javascript会自动为该对象分配适当的内存。垃圾回收器会检查该对象是否是有效对象</li></ul></li></ul><h2 id="三、HOW：怎么解决常见的内存泄露"><a href="#三、HOW：怎么解决常见的内存泄露" class="headerlink" title="三、HOW：怎么解决常见的内存泄露"></a>三、HOW：怎么解决常见的内存泄露</h2><ul><li>意外的全局变量</li><li>被遗漏的定时器和回调函数</li><li>DOM之外的引用</li><li>闭包</li></ul><h2 id="四、Learning-from"><a href="#四、Learning-from" class="headerlink" title="四、Learning from"></a>四、Learning from</h2><ul><li><a href="http://www.cnblogs.com/onepixel/p/8832776.html" target="_blank" rel="noopener">http://www.cnblogs.com/onepixel/p/8832776.html</a></li><li><a href="http://www.ruanyifeng.com/blog/2017/04/memory-leak.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2017/04/memory-leak.html</a></li><li><a href="https://www.ibm.com/developerworks/cn/web/wa-jsmemory/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/web/wa-jsmemory/</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、WHAT：什么是内存泄露&quot;&gt;&lt;a href=&quot;#一、WHAT：什么是内存泄露&quot; class=&quot;headerlink&quot; title=&quot;一、WHAT：什么是内存泄露&quot;&gt;&lt;/a&gt;一、WHAT：什么是内存泄露&lt;/h2&gt;&lt;p&gt;简单来说就是不再用到的内存，没有及时释放&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://frontyang.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="javascript" scheme="https://frontyang.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>闭包</title>
     <link href="https://frontyang.github.io/2018/05/31/closure/"/>
     <id>https://frontyang.github.io/2018/05/31/closure/</id>
